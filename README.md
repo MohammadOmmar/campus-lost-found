@@ -1,10 +1,9 @@
 # Campus Lost & Found: A Web-Based Campus Lost-and-Found Management System with Deterministic Matching and Privacy-Aware Ownership Verification
 
 **Mohammad Ommar**  
-Department of Computer Science / Information Technology  
-[Institution Name]  
-[City, Country]  
-[Email Address]
+Bachelors of Computer Applicaton / Information Technology   
+Kashmir, India  
+mohammadommar2001@gmail.com 
 
 ---
 
