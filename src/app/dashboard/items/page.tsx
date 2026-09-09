@@ -1,9 +1,8 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, MapPin, Calendar, Lock, Package } from 'lucide-react'
+import { ArrowLeft, Package } from 'lucide-react'
 import { ItemCard } from '@/components/items/item-card'
-import { ItemStatusBadge } from '@/components/items/item-status-badge'
 import { FadeUp } from '@/lib/motion'
 
 interface ItemListItem {
@@ -90,14 +89,6 @@ export default async function MyItemsPage() {
       )}
     </div>
   )
-}
-
-function formatDate(dateValue: string): string {
-  return new Date(dateValue).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  })
 }
 
 function EmptyItemsState() {

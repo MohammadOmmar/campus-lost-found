@@ -18,7 +18,6 @@ function makeItem(overrides: Partial<MatchableItem>): MatchableItem {
 }
 
 const CAMPUS = 'campus-1';
-const OTHER_CAMPUS = 'campus-2';
 
 describe('Matching Engine Tests', () => {
   describe('Strong match (>80)', () => {
