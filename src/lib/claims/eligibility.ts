@@ -1,5 +1,5 @@
 // Pure, testable claim eligibility + state-transition rules.
-// No Supabase / React imports — deterministic logic only.
+// No Supabase / React imports —" deterministic logic only.
 
 export type ClaimableItemType = 'LOST' | 'FOUND'
 export type ClaimableItemStatus = 'OPEN' | 'CLAIMED' | 'RETURNED' | 'CLOSED'
@@ -58,7 +58,7 @@ export function isValidItemTransition(
   return ALLOWED_TRANSITIONS[from]?.includes(to) ?? false
 }
 
-/** Proof length rules: 20–500 characters after trimming. */
+/** Proof length rules: 20—"500 characters after trimming. */
 export function isValidProof(proof: string): boolean {
   const len = proof.trim().length
   return len >= 20 && len <= 500

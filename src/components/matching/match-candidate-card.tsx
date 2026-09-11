@@ -33,7 +33,7 @@ interface MatchCandidateCardProps {
 
 /**
  * Candidate card for the matches page.
- * Shows public fields only — never private_verification or claim data.
+ * Shows public fields only —" never private_verification or claim data.
  */
 export function MatchCandidateCard({
   candidate,

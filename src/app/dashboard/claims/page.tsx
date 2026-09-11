@@ -23,7 +23,7 @@ export default async function MyClaimsPage() {
     redirect('/auth/login')
   }
 
-  // Own claims only — RLS further restricts to the caller's rows.
+  // Own claims only —" RLS further restricts to the caller's rows.
   const { data: claims } = await supabase
     .from('claims')
     .select('id, status, proof, created_at, item_id')

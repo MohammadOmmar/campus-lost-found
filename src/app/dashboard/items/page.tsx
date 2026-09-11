@@ -99,7 +99,7 @@ function EmptyItemsState() {
       </div>
       <h2 className="text-h3 mb-2">You haven&apos;t reported anything yet</h2>
       <p className="text-body text-muted-foreground measure-default mb-6">
-        Start by reporting a lost or found item — it takes less than a minute.
+        Start by reporting a lost or found item —" it takes less than a minute.
       </p>
       <div className="flex flex-col sm:flex-row gap-3 justify-center">
         <Link

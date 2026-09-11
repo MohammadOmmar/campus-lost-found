@@ -138,7 +138,7 @@ export default async function MatchesPage({ params }: MatchesPageProps) {
             <div className="border border-dashed border-border rounded-2xl py-16 px-8 text-center">
               <p className="text-h3 mb-2">No potential matches yet</p>
               <p className="text-body text-muted-foreground max-w-[50ch] mx-auto">
-                Check back later — new {oppositeType === 'FOUND' ? 'found' : 'lost'} reports
+                Check back later —" new {oppositeType === 'FOUND' ? 'found' : 'lost'} reports
                 are compared automatically when they are submitted.
               </p>
             </div>

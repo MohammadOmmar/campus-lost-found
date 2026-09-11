@@ -1,5 +1,5 @@
 // Unit tests for claim eligibility + state-transition rules.
-// Pure logic — no Supabase, no network.
+// Pure logic —" no Supabase, no network.
 
 import { describe, expect, it } from 'vitest'
 import {

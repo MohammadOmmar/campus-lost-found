@@ -148,7 +148,7 @@ export function ImageUpload({
                 Drop an image or click to upload
               </p>
               <p className="text-small text-muted-foreground">
-                JPEG, PNG, or WebP — max 5MB
+                JPEG, PNG, or WebP —" max 5MB
               </p>
             </label>
           </motion.div>

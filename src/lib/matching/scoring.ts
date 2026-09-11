@@ -120,7 +120,7 @@ export function areCategoriesCompatible(catA: string, catB: string): boolean {
  */
 export function categoryScore(catA: string, catB: string): number {
   if (catA === catB) return 100;
-  // "other" involved but not exact match — partial compatibility
+  // "other" involved but not exact match —" partial compatibility
   return 50;
 }
 

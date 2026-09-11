@@ -19,7 +19,7 @@ interface MatchScoreProps {
 /**
  * Refined visual score treatment.
  * Circular progress ring + expandable factor breakdown.
- * Not an analytics dashboard — restrained and product-focused.
+ * Not an analytics dashboard —" restrained and product-focused.
  */
 export function MatchScore({ total, breakdown, index = 0 }: MatchScoreProps) {
   const reduceMotion = useReducedMotion()
