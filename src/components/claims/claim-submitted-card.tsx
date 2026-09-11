@@ -13,8 +13,8 @@ export function ClaimSubmittedCard({
 }) {
   return (
     <FadeUp delay={0.1}>
-      <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-8 text-center">
-        <CheckCircle2 className="mx-auto mb-4 h-10 w-10 text-emerald-600" />
+            <div className="rounded-2xl border border-status-found/20 bg-status-found/5 p-8 text-center">
+        <CheckCircle2 className="mx-auto mb-4 h-10 w-10 text-status-found" />
         <h2 className="text-h3 mb-2">Claim submitted</h2>
         <p className="text-body text-muted-foreground measure-default mx-auto">
           Your proof has been sent to the finder for review.

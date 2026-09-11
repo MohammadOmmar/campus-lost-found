@@ -4,8 +4,8 @@ import { Search, FileText } from 'lucide-react'
 
 export function FinalCTA() {
   return (
-    <section className="section-spacing border-t border-border/20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-radial-glow pointer-events-none" />
+        <section className="section-spacing border-t border-border/20 relative overflow-hidden">
+      <div className="absolute inset-0 bg-radial-glow-strong pointer-events-none" />
       <div className="container-narrow text-center relative z-10">
         <h2 className="text-display mb-6">Missing something?</h2>
         <p className="text-body-large text-muted-foreground max-w-md mx-auto mb-10 leading-relaxed">

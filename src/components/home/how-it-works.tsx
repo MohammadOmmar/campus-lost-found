@@ -67,13 +67,17 @@ export function HowItWorks() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1, ease: easeOut }}
             >
-              <div className="mb-6">
-                <span className="text-display font-light text-muted-foreground/15">
+              <div className="mb-8">
+                <span className="text-display font-light text-muted-foreground/10">
                   {step.number}
                 </span>
               </div>
-              <div className="w-10 h-10 rounded-xl bg-secondary/80 flex items-center justify-center mb-5">
-                <step.icon className="w-4.5 h-4.5 text-foreground/70" />
+              <motion.div 
+                className="w-10 h-10 rounded-xl bg-secondary/80 flex items-center justify-center mb-5 ring-1 ring-border/30"
+                whileHover={{ scale: 1.05, backgroundColor: "var(--accent-muted)" }}
+                transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+              >
+                                <step.icon className="w-4.5 h-4.5 text-accent" />
               </div>
               <h3 className="text-h3 mb-3">{step.title}</h3>
               <p className="text-body text-muted-foreground leading-relaxed">

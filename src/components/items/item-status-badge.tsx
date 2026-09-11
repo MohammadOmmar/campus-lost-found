@@ -4,8 +4,8 @@ type ItemStatus = 'OPEN' | 'CLAIMED' | 'RETURNED' | 'CLOSED'
 
 const STATUS_STYLES: Record<ItemStatus, string> = {
   OPEN: 'bg-secondary/10 text-muted-foreground',
-  CLAIMED: 'bg-amber-500/10 text-amber-700 dark:text-amber-400',
-  RETURNED: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400',
+  CLAIMED: 'bg-status-match/10 text-status-match',
+  RETURNED: 'bg-status-found/10 text-status-found',
   CLOSED: 'bg-muted/50 text-muted-foreground',
 }
 

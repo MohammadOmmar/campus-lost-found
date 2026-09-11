@@ -42,11 +42,11 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-3">
-      <motion.nav
+            <motion.nav
         className={`
           mx-auto max-w-5xl rounded-2xl border transition-all duration-300
           ${scrolled
-            ? 'border-border/60 bg-background/80 backdrop-blur-xl shadow-sm shadow-black/[0.03]'
+            ? 'border-border/60 bg-background/80 backdrop-blur-xl shadow-[0_0_30px_rgba(0,0,0,0.3)]'
             : 'border-transparent bg-transparent'
           }
         `}

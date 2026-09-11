@@ -60,9 +60,9 @@ export function ItemForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
       {error && (<Alert variant="destructive"><AlertDescription>{error}</AlertDescription></Alert>)}
 
-      <section>
+            <section>
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-9 h-9 rounded-xl bg-secondary/80 flex items-center justify-center"><Package className="w-4 h-4 text-foreground/70" /></div>
+          <div className="w-9 h-9 rounded-xl bg-accent/10 flex items-center justify-center ring-1 ring-accent/20"><Package className="w-4 h-4 text-accent" /></div>
           <div><h3 className="text-[15px] font-medium text-foreground">What is it?</h3><p className="text-[12px] text-muted-foreground">Tell us about the item</p></div>
         </div>
         <div className="space-y-5">
@@ -100,9 +100,9 @@ export function ItemForm() {
           </div>
         </div>
       </section>
-      <section>
+            <section>
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-9 h-9 rounded-xl bg-secondary/80 flex items-center justify-center"><MapPin className="w-4 h-4 text-foreground/70" /></div>
+          <div className="w-9 h-9 rounded-xl bg-accent/10 flex items-center justify-center ring-1 ring-accent/20"><MapPin className="w-4 h-4 text-accent" /></div>
           <div><h3 className="text-[15px] font-medium text-foreground">Where and when?</h3><p className="text-[12px] text-muted-foreground">Help narrow down the search</p></div>
         </div>
         <div className="grid sm:grid-cols-2 gap-5">
@@ -119,9 +119,9 @@ export function ItemForm() {
         </div>
       </section>
 
-      <section>
+            <section>
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-9 h-9 rounded-xl bg-secondary/80 flex items-center justify-center"><Shield className="w-4 h-4 text-foreground/70" /></div>
+          <div className="w-9 h-9 rounded-xl bg-accent/10 flex items-center justify-center ring-1 ring-accent/20"><Shield className="w-4 h-4 text-accent" /></div>
           <div><h3 className="text-[15px] font-medium text-foreground">Help verify ownership</h3><p className="text-[12px] text-muted-foreground">Optional —" used only during claim review</p></div>
         </div>
         <div className="space-y-2">

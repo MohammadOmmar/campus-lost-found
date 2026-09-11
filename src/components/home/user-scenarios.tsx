@@ -29,11 +29,18 @@ export function UserScenarios() {
         </div>
 
         <div className="flex justify-center mb-12">
-          <div className="inline-flex items-center gap-1 p-1 bg-card border border-border/30 rounded-full">
+          <div className="inline-flex items-center gap-1 p-1 bg-card border border-border/30 rounded-full ring-1 ring-border/20">
             {scenarios.map((scenario) => (
               <button key={scenario.id} onClick={() => setActiveTab(scenario.id)} className={`relative px-5 py-2 rounded-full text-[13px] font-medium transition-colors duration-200 ${activeTab === scenario.id ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'}`} aria-selected={activeTab === scenario.id} role="tab">
-                {activeTab === scenario.id && (<motion.div className="absolute inset-0 bg-secondary rounded-full" layoutId="activeTab" transition={{ duration: 0.25, ease: easeOut }} />)}
-                <span className="relative flex items-center gap-2"><scenario.icon className="w-3.5 h-3.5" /><span className="hidden sm:inline">{scenario.label}</span></span>
+                {activeTab === scenario.id && (<motion.div className="absolute inset-0 bg-accent/10 rounded-full" layoutId="activeTab" transition={{ duration: 0.25, ease: easeOut }} />)}
+                <motion.div 
+                  className="relative flex items-center gap-2"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
+                >
+                  <scenario.icon className={`w-3.5 h-3.5 ${activeTab === scenario.id ? 'text-accent' : ''}`} />
+                  <span className="hidden sm:inline">{scenario.label}</span>
+                </motion.div>
               </button>
             ))}
           </div>
@@ -43,14 +50,14 @@ export function UserScenarios() {
           <motion.div key={activeTab} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }} transition={{ duration: 0.3, ease: easeOut }} className="bg-card border border-border/30 rounded-2xl p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div>
-                <div className="w-11 h-11 rounded-xl bg-secondary/80 flex items-center justify-center mb-6"><activeScenario.icon className="w-5 h-5 text-foreground/70" /></div>
+                                <div className="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center mb-6 ring-1 ring-accent/20"><activeScenario.icon className="w-5 h-5 text-accent" /></div>
                 <h3 className="text-h2 mb-4">{activeScenario.title}</h3>
                 <p className="text-body-large text-muted-foreground leading-relaxed">{activeScenario.description}</p>
               </div>
               <div className="space-y-4">
                 {activeScenario.steps.map((step, index) => (
                   <motion.div key={index} className="flex items-start gap-4" initial={{ opacity: 0, x: 12 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.3, delay: index * 0.08, ease: easeOut }}>
-                    <div className="w-7 h-7 rounded-full bg-secondary/80 flex items-center justify-center shrink-0 mt-0.5"><span className="text-[12px] font-medium text-muted-foreground">{index + 1}</span></div>
+                                        <div className="w-7 h-7 rounded-full bg-accent/10 flex items-center justify-center shrink-0 mt-0.5 ring-1 ring-accent/20"><span className="text-[12px] font-medium text-accent">{index + 1}</span></div>
                     <p className="text-[14px] text-foreground pt-0.5">{step}</p>
                   </motion.div>
                 ))}

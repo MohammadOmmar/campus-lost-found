@@ -3,8 +3,8 @@ import { cn } from '@/lib/utils'
 type ClaimStatus = 'pending' | 'approved' | 'rejected'
 
 const STYLES: Record<ClaimStatus, string> = {
-  pending: 'bg-amber-500/10 text-amber-700 dark:text-amber-400',
-  approved: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400',
+  pending: 'bg-status-match/10 text-status-match',
+  approved: 'bg-status-found/10 text-status-found',
   rejected: 'bg-secondary text-muted-foreground',
 }
 

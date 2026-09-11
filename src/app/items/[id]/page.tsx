@@ -69,8 +69,8 @@ export default async function ItemDetailPage({ params, searchParams }: ItemDetai
             <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-medium tracking-wide ${isLost ? 'bg-destructive/10 text-destructive' : 'bg-status-found/10 text-status-found'}`}>
               {item.type}
             </span>
-            {item.status !== 'OPEN' && (
-              <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-secondary/60 text-[11px] font-medium text-muted-foreground">
+                        {item.status !== 'OPEN' && (
+              <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-secondary/30 text-[11px] font-medium text-muted-foreground">
                 {item.status.charAt(0) + item.status.slice(1).toLowerCase()}
               </span>
             )}
