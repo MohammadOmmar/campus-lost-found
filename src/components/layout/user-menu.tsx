@@ -44,45 +44,45 @@ export function UserMenu({ user }: UserMenuProps) {
     <div className="relative" ref={menuRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-2.5 py-1.5 rounded-full text-[13px] font-medium text-foreground hover:bg-secondary/60 transition-colors duration-200"
+        className="flex items-center gap-2 px-2 py-1.5 rounded-sm text-[13px] font-medium text-text-secondary hover:text-text-primary hover:bg-base-800 transition-colors duration-200"
         aria-expanded={isOpen}
         aria-haspopup="true"
         aria-label="User menu"
       >
-        <div className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center">
-          <User className="w-3 h-3 text-muted-foreground" />
+        <div className="w-6 h-6 rounded-sm bg-base-700 flex items-center justify-center border border-border-subtle">
+          <User className="w-3 h-3 text-text-muted" />
         </div>
         <span className="hidden sm:inline max-w-[100px] truncate">{displayName}</span>
-        <ChevronDown className={`w-3 h-3 text-muted-foreground transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-3 h-3 text-text-muted transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="absolute right-0 top-full mt-2 w-52 bg-card border border-border/50 rounded-xl shadow-lg shadow-black/[0.08] py-1.5 z-50"
+            className="absolute right-0 top-full mt-2 w-52 bg-base-850 border border-border-default rounded-md py-1.5 z-50"
             initial={{ opacity: 0, y: -6, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -6, scale: 0.97 }}
             transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
           >
-            <div className="px-3.5 py-2.5 border-b border-border/30">
-              <p className="text-[13px] font-medium text-foreground truncate">{displayName}</p>
-              <p className="text-[11px] text-muted-foreground truncate">{user.email}</p>
+            <div className="px-3.5 py-2.5 border-b border-border-subtle">
+              <p className="text-[13px] font-medium text-text-primary truncate">{displayName}</p>
+              <p className="text-[11px] text-text-muted truncate">{user.email}</p>
             </div>
             <div className="py-1">
               <Link
                 href="/dashboard"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-2.5 px-3.5 py-2 text-[13px] text-foreground hover:bg-secondary/50 transition-colors"
+                className="flex items-center gap-2.5 px-3.5 py-2 text-[13px] text-text-secondary hover:bg-base-700 hover:text-text-primary transition-colors"
               >
-                <LayoutDashboard className="w-3.5 h-3.5 text-muted-foreground" />
+                <LayoutDashboard className="w-3.5 h-3.5 text-text-muted" />
                 Dashboard
               </Link>
             </div>
-            <div className="border-t border-border/30 pt-1 pb-1">
+            <div className="border-t border-border-subtle pt-1 pb-1">
               <button
                 onClick={handleSignOut}
-                className="flex items-center gap-2.5 w-full px-3.5 py-2 text-[13px] text-muted-foreground hover:bg-secondary/50 hover:text-foreground transition-colors"
+                className="flex items-center gap-2.5 w-full px-3.5 py-2 text-[13px] text-text-muted hover:bg-base-700 hover:text-text-primary transition-colors"
               >
                 <LogOut className="w-3.5 h-3.5" />
                 Sign Out

@@ -92,14 +92,14 @@ export function MatchScore({ total, breakdown, index = 0 }: MatchScoreProps) {
         }}
         className="flex-1 min-w-0"
       >
-        <p className="text-caption text-muted-foreground mb-2">Potential match</p>
+        <p className="text-caption text-text-muted mb-2">Potential match</p>
         <div className="space-y-1.5">
           {factors.map((f) => (
             <div key={f.label} className="flex items-center gap-2">
-              <span className="text-small text-muted-foreground w-20 shrink-0">
+              <span className="text-small text-text-muted w-20 shrink-0">
                 {f.label}
               </span>
-              <div className="flex-1 h-1 rounded-full bg-secondary overflow-hidden">
+              <div className="flex-1 h-1 rounded-full bg-base-700 overflow-hidden">
                 <motion.div
                   className="h-full rounded-full bg-accent"
                   initial={{ width: 0 }}
@@ -111,7 +111,7 @@ export function MatchScore({ total, breakdown, index = 0 }: MatchScoreProps) {
                   }}
                 />
               </div>
-              <span className="text-small text-muted-foreground w-12 text-right shrink-0 tabular-nums">
+              <span className="text-small text-text-muted w-12 text-right shrink-0 tabular-nums">
                 {f.points}/{f.max}
               </span>
             </div>

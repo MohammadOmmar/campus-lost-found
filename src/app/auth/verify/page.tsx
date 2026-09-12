@@ -8,8 +8,8 @@ export default function VerifyEmailPage() {
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-16">
       <Card className="w-full max-w-md text-center" size="lg">
         <CardHeader>
-          <div className="mx-auto w-14 h-14 rounded-2xl bg-secondary flex items-center justify-center mb-6">
-            <Mail className="w-6 h-6 text-foreground" />
+          <div className="mx-auto w-14 h-14 rounded-lg bg-base-700 flex items-center justify-center mb-6">
+            <Mail className="w-6 h-6 text-text-primary" />
           </div>
           <CardTitle className="text-h3">Check your email</CardTitle>
           <CardDescription className="text-body">

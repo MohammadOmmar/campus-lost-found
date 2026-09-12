@@ -94,7 +94,7 @@ export function ImageUpload({
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
-            className="relative aspect-video bg-secondary/50 rounded-2xl overflow-hidden border border-border/40"
+            className="relative aspect-video bg-base-700/50 rounded-lg overflow-hidden border border-border-subtle"
           >
             {/* eslint-disable @next/next/no-img-element -- blob: URLs cannot be optimized by next/image */}
             <img
@@ -107,7 +107,7 @@ export function ImageUpload({
               <button
                 type="button"
                 onClick={handleRemove}
-                className="absolute top-3 right-3 p-2 bg-background/90 backdrop-blur-sm rounded-full text-foreground hover:bg-background transition-colors"
+                className="absolute top-3 right-3 p-2 bg-background/90 backdrop-blur-sm rounded-full text-text-primary hover:bg-background transition-colors"
                 aria-label="Remove image"
               >
                 <X className="w-4 h-4" />
@@ -135,19 +135,19 @@ export function ImageUpload({
               onDragOver={handleDragOver}
               onDragLeave={handleDragLeave}
               onDrop={handleDrop}
-              className={`flex flex-col items-center justify-center aspect-video border-2 border-dashed rounded-2xl cursor-pointer transition-all duration-200 ${
+              className={`flex flex-col items-center justify-center aspect-video border-2 border-dashed rounded-lg cursor-pointer transition-all duration-200 ${
                 isDragging
-                  ? 'border-primary bg-primary/5'
-                  : 'border-border/40 bg-secondary/20 hover:border-border/60 hover:bg-secondary/30'
+                  ? 'border-primary bg-accent/5'
+                  : 'border-border-subtle bg-base-700/20 hover:border-border-subtle hover:bg-base-700/30'
               } ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
-              <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center mb-4">
-                <Upload className="w-5 h-5 text-muted-foreground" />
+              <div className="w-12 h-12 rounded-lg bg-base-700 flex items-center justify-center mb-4">
+                <Upload className="w-5 h-5 text-text-muted" />
               </div>
-              <p className="text-body font-medium text-foreground mb-1">
+              <p className="text-body font-medium text-text-primary mb-1">
                 Drop an image or click to upload
               </p>
-              <p className="text-small text-muted-foreground">
+              <p className="text-small text-text-muted">
                 JPEG, PNG, or WebP —" max 5MB
               </p>
             </label>
@@ -156,7 +156,7 @@ export function ImageUpload({
       </AnimatePresence>
 
       {error && (
-        <p className="text-small text-destructive">{error}</p>
+        <p className="text-small text-status-lost">{error}</p>
       )}
     </div>
   )

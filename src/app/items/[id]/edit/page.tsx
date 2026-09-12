@@ -52,7 +52,7 @@ export default async function EditItemPage({ params }: EditItemPageProps) {
     <div className="container-tight py-12">
       <div className="mb-12">
         <h1 className="text-h1 mb-3">Edit Item</h1>
-        <p className="text-body text-muted-foreground">
+        <p className="text-body text-text-muted">
           Update the details of your reported item.
         </p>
       </div>

@@ -5,7 +5,7 @@ type ClaimStatus = 'pending' | 'approved' | 'rejected'
 const STYLES: Record<ClaimStatus, string> = {
   pending: 'bg-status-match/10 text-status-match',
   approved: 'bg-status-found/10 text-status-found',
-  rejected: 'bg-secondary text-muted-foreground',
+  rejected: 'bg-base-700 text-text-muted',
 }
 
 const LABELS: Record<ClaimStatus, string> = {

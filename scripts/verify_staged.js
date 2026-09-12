@@ -1,0 +1,13 @@
+var {execSync} = require('child_process');
+var s = execSync("git show :src/components/home/how-it-works.tsx").toString();
+var dq = (s.match(/\"/g) || []).length;
+var sq = (s.match(/'/g) || []).length;
+console.log('STAGED DQ:', dq);
+console.log('STAGED SQ:', sq);
+console.log('STAGED Lines:', s.split('\n').length);
+console.log('STAGED bg-accent:', s.includes('bg-accent'));
+console.log('STAGED CheckCircle2:', s.includes('CheckCircle2'));
+console.log('STAGED text-accent:', s.includes('text-accent'));
+console.log('STAGED grid gap-8:', s.includes('grid gap-8'));
+console.log('STAGED bg-accent/5:', s.includes('bg-accent/5'));
+console.log('STAGED First line:', JSON.stringify(s.split('\n')[0]));

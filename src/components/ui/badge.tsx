@@ -4,20 +4,20 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "cn"
 
 const badgeVariants = cva(
-  "group/badge inline-flex h-6 w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-full border border-transparent px-2.5 py-0.5 text-xs font-medium whitespace-nowrap transition-all duration-200 focus-visible:ring-2 focus-visible:ring-ring/30 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive aria-invalid:ring-destructive/20 [&>svg]:pointer-events-none [&>svg]:size-3!",
+  "group/badge inline-flex h-6 w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-full border border-transparent px-2.5 py-0.5 text-xs font-medium whitespace-nowrap transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent/30 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-status-lost aria-invalid:ring-destructive/20 [&>svg]:pointer-events-none [&>svg]:size-3!",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
+        default: "bg-accent text-base-950 [a]:hover:bg-accent/80",
         secondary:
-          "bg-secondary text-secondary-foreground [a]:hover:bg-secondary/80",
+          "bg-base-700 text-text-primary [a]:hover:bg-base-700/80",
         destructive:
-          "bg-destructive/10 text-destructive focus-visible:ring-destructive/20 [a]:hover:bg-destructive/20",
+          "bg-status-lost/10 text-status-lost focus-visible:ring-status-lost/20 [a]:hover:bg-status-lost/20",
         outline:
-          "border-border text-foreground [a]:hover:bg-secondary [a]:hover:text-secondary-foreground",
+          "border-border-subtle text-text-primary [a]:hover:bg-base-700 [a]:hover:text-text-primary",
         ghost:
-          "hover:bg-secondary hover:text-secondary-foreground",
-        link: "text-foreground underline-offset-4 hover:underline",
+          "hover:bg-base-700 hover:text-text-primary",
+        link: "text-text-primary underline-offset-4 hover:underline",
       },
     },
     defaultVariants: {

@@ -9,9 +9,15 @@ export default function Home() {
   return (
     <div className="flex flex-col flex-1">
       <Hero />
-      <HowItWorks />
-      <UserScenarios />
-      <RecentItems />
+      <div className="section-surface-deep">
+        <HowItWorks />
+      </div>
+      <div className="section-surface-raised">
+        <UserScenarios />
+      </div>
+      <div className="section-surface-deep">
+        <RecentItems />
+      </div>
       <PrivacyVerification />
       <FinalCTA />
     </div>

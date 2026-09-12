@@ -5,25 +5,25 @@ import { Slot } from "@radix-ui/react-slot"
 import { forwardRef } from "react"
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center border border-transparent bg-clip-padding font-medium whitespace-nowrap transition-all duration-200 ease-[cubic-bezier(0.4,0,0.2,1)] outline-none select-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-center border border-transparent bg-clip-padding font-medium whitespace-nowrap transition-all duration-200 ease-[cubic-bezier(0.4,0,0.2,1)] outline-none select-none focus-visible:ring-1 focus-visible:ring-accent/40 disabled:pointer-events-none disabled:opacity-40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/85 active:bg-primary/75",
-        outline: "border-border bg-transparent hover:bg-secondary/50 hover:border-border/60 active:bg-secondary",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 active:bg-secondary/60",
-        ghost: "hover:bg-secondary/60 hover:text-foreground active:bg-secondary",
-        destructive: "bg-destructive/10 text-destructive hover:bg-destructive/20 active:bg-destructive/30",
-        link: "text-foreground underline-offset-4 hover:underline",
+        default: "bg-accent text-base-950 hover:bg-accent-dim active:bg-accent/80 shadow-[0_0_20px_rgba(200,255,0,0.15)]",
+        outline: "border-border-default bg-transparent text-text-primary hover:bg-base-800 hover:border-border-strong active:bg-base-700",
+        secondary: "bg-base-700 text-text-primary hover:bg-base-600 active:bg-base-500 border border-border-subtle",
+        ghost: "text-text-secondary hover:text-text-primary hover:bg-base-800 active:bg-base-700",
+        destructive: "bg-status-lost/10 text-status-lost border border-status-lost/20 hover:bg-status-lost/20 active:bg-status-lost/30",
+        link: "text-accent underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-10 gap-2 px-4 text-sm rounded-lg",
-        sm: "h-8 gap-1.5 px-3 text-sm rounded-md",
-        lg: "h-11 gap-2.5 px-5 text-sm rounded-lg",
-        xl: "h-13 gap-3 px-7 text-base rounded-xl",
-        icon: "size-10 rounded-lg",
-        "icon-sm": "size-8 rounded-md",
-        "icon-lg": "size-12 rounded-xl",
+        default: "h-10 gap-2 px-4 text-sm rounded-sm",
+        sm: "h-8 gap-1.5 px-3 text-xs rounded-xs",
+        lg: "h-11 gap-2.5 px-5 text-sm rounded-md",
+        xl: "h-13 gap-3 px-7 text-base rounded-md",
+        icon: "size-10 rounded-md",
+        "icon-sm": "size-8 rounded-sm",
+        "icon-lg": "size-12 rounded-md",
       },
     },
     defaultVariants: {

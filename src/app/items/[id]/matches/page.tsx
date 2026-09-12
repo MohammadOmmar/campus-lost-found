@@ -82,26 +82,26 @@ export default async function MatchesPage({ params }: MatchesPageProps) {
     <div className="container-tight py-12 md:py-16">
       <Link
         href={`/items/${item.id}`}
-        className="inline-flex items-center gap-2 text-small text-muted-foreground hover:text-foreground transition-colors mb-8"
+        className="inline-flex items-center gap-2 text-small text-text-muted hover:text-text-primary transition-colors mb-8"
       >
         <ArrowLeft className="w-4 h-4" />
         Back to report
       </Link>
 
       <FadeUp>
-        <p className="text-caption text-muted-foreground mb-3">
+        <p className="text-caption text-text-muted mb-3">
           {item.type} &middot; {item.category}
         </p>
         <h1 className="text-h1 mb-3">Potential matches</h1>
-        <p className="text-body-large text-muted-foreground max-w-[60ch]">
+        <p className="text-body-large text-text-muted max-w-[60ch]">
           These reports share characteristics with this item.
         </p>
       </FadeUp>
 
       <FadeUp delay={0.1} className="mt-10">
-        <div className="bg-card border border-border/40 rounded-2xl overflow-hidden">
+        <div className="bg-base-850 border border-border-subtle rounded-lg overflow-hidden">
           <div className="grid md:grid-cols-[200px_1fr]">
-            <div className="relative aspect-[16/10] md:aspect-auto md:min-h-[160px] bg-secondary/40 flex items-center justify-center overflow-hidden">
+            <div className="relative aspect-[16/10] md:aspect-auto md:min-h-[160px] bg-base-700/40 flex items-center justify-center overflow-hidden">
               {item.image_url ? (
                 <Image
                   src={item.image_url}
@@ -111,13 +111,13 @@ export default async function MatchesPage({ params }: MatchesPageProps) {
                   className="object-cover"
                 />
               ) : (
-                <Package className="w-8 h-8 text-muted-foreground/30" />
+                <Package className="w-8 h-8 text-text-muted/30" />
               )}
             </div>
             <div className="p-6">
-              <p className="text-caption text-muted-foreground mb-2">Your report</p>
+              <p className="text-caption text-text-muted mb-2">Your report</p>
               <h2 className="text-h3 mb-2">{item.title}</h2>
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-small text-muted-foreground">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-small text-text-muted">
                 <span className="inline-flex items-center gap-1.5">
                   <MapPin className="w-3.5 h-3.5" />
                   {item.location}
@@ -135,9 +135,9 @@ export default async function MatchesPage({ params }: MatchesPageProps) {
       <div className="mt-10">
         {matches.length === 0 ? (
           <FadeUp delay={0.15}>
-            <div className="border border-dashed border-border rounded-2xl py-16 px-8 text-center">
+            <div className="border border-dashed border-border-subtle rounded-lg py-16 px-8 text-center">
               <p className="text-h3 mb-2">No potential matches yet</p>
-              <p className="text-body text-muted-foreground max-w-[50ch] mx-auto">
+              <p className="text-body text-text-muted max-w-[50ch] mx-auto">
                 Check back later —" new {oppositeType === 'FOUND' ? 'found' : 'lost'} reports
                 are compared automatically when they are submitted.
               </p>

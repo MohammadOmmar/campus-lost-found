@@ -43,16 +43,16 @@ export default async function MyClaimsPage() {
   return (
     <div className="container-tight py-12">
       <h1 className="text-h1 mb-3">My Claims</h1>
-      <p className="text-body text-muted-foreground mb-10">Claims you have submitted</p>
+      <p className="text-body text-text-muted mb-10">Claims you have submitted</p>
 
       {!claims || claims.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-border p-12 text-center">
-          <p className="text-body text-muted-foreground mb-4">
+        <div className="rounded-lg border border-dashed border-border-subtle p-12 text-center">
+          <p className="text-body text-text-muted mb-4">
             You have not submitted any claims yet.
           </p>
           <Link
             href="/items?type=FOUND&status=OPEN"
-            className="inline-flex items-center justify-center rounded-xl border border-border px-6 py-3 text-small font-medium transition-colors hover:bg-secondary"
+            className="inline-flex items-center justify-center rounded-md border border-border-subtle px-6 py-3 text-small font-medium transition-colors hover:bg-base-700"
           >
             Browse found items
           </Link>
@@ -65,13 +65,13 @@ export default async function MyClaimsPage() {
               <Link
                 key={claim.id}
                 href={`/items/${claim.item_id}`}
-                className="flex gap-5 rounded-2xl border border-border/40 bg-card p-5 transition-all hover:-translate-y-0.5 hover:border-border"
+                className="flex gap-5 rounded-lg border border-border-subtle bg-base-850 p-5 transition-all hover:-translate-y-0.5 hover:border-border-subtle"
               >
-                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-secondary/40">
+                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-md bg-base-700/40">
                   {item?.image_url ? (
                     <Image src={item.image_url} alt={item.title} fill sizes="64px" className="object-cover" />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center text-muted-foreground/40">
+                    <div className="flex h-full w-full items-center justify-center text-text-muted/40">
                       <Package className="h-5 w-5" />
                     </div>
                   )}
@@ -81,7 +81,7 @@ export default async function MyClaimsPage() {
                     <p className="text-body font-medium truncate">{item?.title ?? 'Item'}</p>
                     <ClaimStatusBadge status={claim.status} />
                   </div>
-                  <p className="text-small text-muted-foreground">
+                  <p className="text-small text-text-muted">
                     {item?.location} · {item?.date_lost_found ? formatDate(item.date_lost_found) : ''} ·
                     Submitted {formatDate(claim.created_at)}
                   </p>
@@ -94,7 +94,7 @@ export default async function MyClaimsPage() {
 
       <Link
         href="/dashboard"
-        className="mt-10 inline-flex items-center gap-2 text-small text-muted-foreground hover:text-foreground transition-colors"
+        className="mt-10 inline-flex items-center gap-2 text-small text-text-muted hover:text-text-primary transition-colors"
       >
         <ArrowLeft className="w-4 h-4" /> Back to dashboard
       </Link>

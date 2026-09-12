@@ -27,25 +27,25 @@ function ItemCard({ item, index }: { item: typeof items[0]; index: number }) {
     >
       <Link
         href="#"
-        className="group block bg-card border border-border/30 rounded-2xl overflow-hidden transition-all duration-200 hover:border-border/50 hover:shadow-sm"
+        className="group block bg-base-850 border border-border-subtle rounded-lg overflow-hidden transition-all duration-200 hover:border-border-strong"
       >
-        <div className="relative aspect-[4/3] bg-secondary/40 flex items-center justify-center overflow-hidden">
-          <Package className="w-9 h-9 text-muted-foreground/20 transition-transform duration-300 group-hover:scale-110" />
+        <div className="relative aspect-[4/3] bg-base-900/50 flex items-center justify-center overflow-hidden">
+          <Package className="w-8 h-8 text-text-muted/20 transition-transform duration-300 group-hover:scale-110" />
           <div className="absolute top-3 left-3">
-            <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-medium tracking-wide ${isLost ? 'bg-destructive/10 text-destructive' : 'bg-status-found/10 text-status-found'}`}>
+            <span className={`label-tag ${isLost ? '!text-status-lost !border-status-lost/20 !bg-status-lost/10' : '!text-status-found !border-status-found/20 !bg-status-found/10'}`}>
               {item.type}
             </span>
           </div>
         </div>
 
         <div className="p-4">
-          <h4 className="text-[14px] font-medium text-foreground mb-2 group-hover:text-foreground/80 transition-colors line-clamp-1">{item.title}</h4>
+          <h4 className="text-[14px] font-medium text-text-primary mb-2 group-hover:text-accent transition-colors line-clamp-1">{item.title}</h4>
           <div className="space-y-1.5">
-            <div className="flex items-center gap-2 text-[12px] text-muted-foreground"><MapPin className="w-3 h-3 shrink-0" /><span className="truncate">{item.location}</span></div>
-            <div className="flex items-center gap-2 text-[12px] text-muted-foreground"><Calendar className="w-3 h-3 shrink-0" /><span>{item.date}</span></div>
+            <div className="flex items-center gap-2 text-[12px] text-text-muted"><MapPin className="w-3 h-3 shrink-0" /><span className="truncate">{item.location}</span></div>
+            <div className="flex items-center gap-2 text-[12px] text-text-muted"><Calendar className="w-3 h-3 shrink-0" /><span>{item.date}</span></div>
           </div>
-          <div className="mt-3 pt-3 border-t border-border/20">
-            <span className="text-[11px] text-muted-foreground uppercase tracking-wide">{item.category}</span>
+          <div className="mt-3 pt-3 border-t border-border-subtle">
+            <span className="text-mono">{item.category}</span>
           </div>
         </div>
       </Link>
@@ -55,19 +55,20 @@ function ItemCard({ item, index }: { item: typeof items[0]; index: number }) {
 
 export function RecentItems() {
   return (
-    <section className="section-spacing border-t border-border/20">
-      <div className="container-wide">
+    <section className="section-spacing border-t border-border-subtle">
+      <div className="container-tight">
         <div className="flex items-end justify-between mb-12">
           <div>
-            <motion.h2 className="text-h2 mb-3" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: easeOut }}>
+            <span className="label-tag-accent mb-3 inline-flex">Live Feed</span>
+            <motion.h2 className="text-h2 mt-3 mb-2" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: easeOut }}>
               Recent Lost & Found
             </motion.h2>
-            <motion.p className="text-body text-muted-foreground" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1, ease: easeOut }}>
+            <motion.p className="text-body" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1, ease: easeOut }}>
               Latest items reported on campus
             </motion.p>
           </div>
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2, ease: easeOut }}>
-            <Link href="/items" className="hidden sm:inline-flex items-center gap-2 text-[13px] font-medium text-foreground hover:text-muted-foreground transition-colors">
+            <Link href="/items" className="hidden sm:inline-flex items-center gap-2 text-[13px] font-medium text-text-secondary hover:text-accent transition-colors">
               View all items <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </motion.div>
@@ -78,7 +79,7 @@ export function RecentItems() {
         </div>
 
         <div className="mt-8 text-center sm:hidden">
-          <Link href="/items" className="inline-flex items-center gap-2 text-[13px] font-medium text-foreground">
+          <Link href="/items" className="inline-flex items-center gap-2 text-[13px] font-medium text-text-secondary hover:text-accent">
             View all items <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>

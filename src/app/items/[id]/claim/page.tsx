@@ -67,7 +67,7 @@ export default async function ClaimPage({ params, searchParams }: ClaimPageProps
     <div className="container-narrow py-12 md:py-16">
       <Link
         href={`/items/${item.id}`}
-        className="inline-flex items-center gap-2 text-small text-muted-foreground hover:text-foreground transition-colors mb-10"
+        className="inline-flex items-center gap-2 text-small text-text-muted hover:text-text-primary transition-colors mb-10"
       >
         <ArrowLeft className="w-4 h-4" />
         Back to item
@@ -75,28 +75,28 @@ export default async function ClaimPage({ params, searchParams }: ClaimPageProps
 
       <FadeUp>
         <h1 className="text-h1 mb-4">Think this is yours?</h1>
-        <p className="text-body-large text-muted-foreground measure-default mb-10">
+        <p className="text-body-large text-text-muted measure-default mb-10">
           Tell the finder something that helps verify ownership.
         </p>
       </FadeUp>
 
       <FadeUp delay={0.05}>
-        <div className="flex gap-5 rounded-2xl border border-border/40 bg-card p-5 mb-10">
-          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-secondary/40">
+        <div className="flex gap-5 rounded-lg border border-border-subtle bg-base-850 p-5 mb-10">
+          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-base-700/40">
             {item.image_url ? (
               <Image src={item.image_url} alt={item.title} fill sizes="80px" className="object-cover" />
             ) : (
-              <div className="flex h-full w-full items-center justify-center text-muted-foreground/40">
+              <div className="flex h-full w-full items-center justify-center text-text-muted/40">
                 <ShieldCheck className="h-6 w-6" />
               </div>
             )}
           </div>
           <div className="min-w-0">
-            <p className="text-caption text-muted-foreground mb-1">
+            <p className="text-caption text-text-muted mb-1">
               {item.type} · {item.category}
             </p>
             <p className="text-body font-medium truncate">{item.title}</p>
-            <div className="mt-2 flex flex-col gap-1 text-small text-muted-foreground">
+            <div className="mt-2 flex flex-col gap-1 text-small text-text-muted">
               <span className="inline-flex items-center gap-1.5">
                 <MapPin className="h-3.5 w-3.5" /> {item.location}
               </span>
@@ -112,8 +112,8 @@ export default async function ClaimPage({ params, searchParams }: ClaimPageProps
         <ClaimSubmittedCard itemId={item.id} status={myClaim?.status} />
       ) : !eligible ? (
         <FadeUp delay={0.1}>
-          <div className="rounded-2xl border border-border/40 bg-card p-8 text-center">
-            <p className="text-body text-muted-foreground">{ineligibleReason}</p>
+          <div className="rounded-lg border border-border-subtle bg-base-850 p-8 text-center">
+            <p className="text-body text-text-muted">{ineligibleReason}</p>
           </div>
         </FadeUp>
       ) : (

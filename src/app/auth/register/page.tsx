@@ -7,7 +7,6 @@ import { createClient } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 
 export default function RegisterPage() {
@@ -34,42 +33,45 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 pt-24 pb-16">
-      <Card className="w-full max-w-md" size="lg">
-        <CardHeader>
-          <CardTitle className="text-h3">Create account</CardTitle>
-          <CardDescription className="text-body">Sign up to start reporting lost and found items</CardDescription>
-        </CardHeader>
-        <form onSubmit={handleSubmit}>
-          <CardContent className="space-y-5">
-            {error && (<Alert variant="destructive"><AlertDescription>{error}</AlertDescription></Alert>)}
-            <div className="space-y-2">
-              <Label htmlFor="fullName">Full name</Label>
-              <Input id="fullName" type="text" placeholder="John Doe" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
+      <div className="w-full max-w-md">
+        <div className="bg-base-850 border border-border-subtle rounded-lg p-8">
+          <div className="mb-8">
+            <p className="text-[11px] uppercase tracking-wider text-text-muted mb-2">Get Started</p>
+            <h1 className="text-h3">Create account</h1>
+            <p className="text-body text-text-muted mt-2">Sign up to start reporting lost and found items</p>
+          </div>
+          <form onSubmit={handleSubmit}>
+            <div className="space-y-5">
+              {error && (<Alert variant="destructive"><AlertDescription>{error}</AlertDescription></Alert>)}
+              <div className="space-y-2">
+                <Label htmlFor="fullName">Full name</Label>
+                <Input id="fullName" type="text" placeholder="John Doe" value={fullName} onChange={(e) => setFullName(e.target.value)} required />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <Input id="email" type="email" placeholder="you@university.edu" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="password">Password</Label>
+                <Input id="password" type="password" placeholder="At least 8 characters" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={8} />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="confirmPassword">Confirm password</Label>
+                <Input id="confirmPassword" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+              </div>
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="you@university.edu" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <div className="flex flex-col gap-4 mt-8">
+              <Button type="submit" className="w-full h-11" size="lg" disabled={loading}>
+                {loading ? 'Creating account...' : 'Create account'}
+              </Button>
+              <p className="text-[13px] text-text-muted text-center">
+                Already have an account?{' '}
+                <Link href="/auth/login" className="text-text-primary hover:underline font-medium">Log in</Link>
+              </p>
             </div>
-            <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" placeholder="At least 8 characters" value={password} onChange={(e) => setPassword(e.target.value)} required minLength={8} />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Confirm password</Label>
-              <Input id="confirmPassword" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
-            </div>
-          </CardContent>
-          <CardFooter className="flex flex-col gap-4">
-            <Button type="submit" className="w-full h-11" size="lg" disabled={loading}>
-              {loading ? 'Creating account...' : 'Create account'}
-            </Button>
-            <p className="text-[13px] text-muted-foreground">
-              Already have an account?{' '}
-              <Link href="/auth/login" className="text-foreground hover:underline font-medium">Log in</Link>
-            </p>
-          </CardFooter>
-        </form>
-      </Card>
+          </form>
+        </div>
+      </div>
     </div>
   )
 }

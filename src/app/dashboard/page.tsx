@@ -1,7 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Package, FileText, Inbox } from 'lucide-react'
 
@@ -15,65 +14,61 @@ export default async function DashboardPage() {
   const { count: myClaims } = await supabase.from('claims').select('*', { count: 'exact', head: true }).eq('user_id', user.id).eq('status', 'pending')
   const { count: receivedClaims } = await supabase.from('claims').select('*, items!inner(*)', { count: 'exact', head: true }).eq('items.user_id', user.id).eq('claims.status', 'pending')
 
+  const stats = [
+    { label: 'Active Items', value: activeItems || 0, icon: Package },
+    { label: 'My Claims', value: myClaims || 0, icon: FileText },
+    { label: 'Received Claims', value: receivedClaims || 0, icon: Inbox },
+  ]
+
+  const sections = [
+    { title: 'My Items', description: 'View and manage your reported items', href: '/dashboard/items' },
+    { title: 'My Claims', description: "Track claims you've submitted", href: '/dashboard/claims' },
+    { title: 'Received Claims', description: 'Review claims on your found items', href: '/dashboard/received' },
+  ]
+
   return (
     <div className="container-tight pt-24 pb-12">
-      <div className="mb-12">
-        <h1 className="text-h1">Dashboard</h1>
-        <p className="text-body text-muted-foreground mt-3">Welcome back, {profile?.full_name || 'User'}</p>
+      <div className="mb-10">
+        <p className="text-[11px] uppercase tracking-wider text-text-muted mb-2">Dashboard</p>
+        <h1 className="text-h1">Welcome back</h1>
+        <p className="text-body text-text-muted mt-2">{profile?.full_name || 'User'}</p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-5 mb-10">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-[13px] font-medium text-muted-foreground">Active Items</CardTitle>
-            <Package className="w-4 h-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-semibold">{activeItems || 0}</div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-[13px] font-medium text-muted-foreground">My Claims</CardTitle>
-            <FileText className="w-4 h-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-semibold">{myClaims || 0}</div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-[13px] font-medium text-muted-foreground">Received Claims</CardTitle>
-            <Inbox className="w-4 h-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-semibold">{receivedClaims || 0}</div>
-          </CardContent>
-        </Card>
+      <div className="grid md:grid-cols-3 gap-4 mb-8">
+        {stats.map((stat) => (
+          <div key={stat.label} className="bg-base-850 border border-border-subtle rounded-lg p-5">
+            <div className="flex items-center justify-between mb-3">
+              <span className="text-[11px] uppercase tracking-wider text-text-muted">{stat.label}</span>
+              <stat.icon className="w-4 h-4 text-text-muted/60" />
+            </div>
+            <div className="text-2xl font-semibold text-text-primary">{stat.value}</div>
+          </div>
+        ))}
       </div>
 
-      <div className="grid md:grid-cols-2 gap-4 mb-10">
-        <Button asChild size="xl" className="h-auto py-5">
+      <div className="grid sm:grid-cols-2 gap-3 mb-10">
+        <Button asChild size="xl" className="h-auto py-4">
           <Link href="/items/new">Report an Item</Link>
         </Button>
-        <Button asChild size="xl" variant="outline" className="h-auto py-5">
+        <Button asChild size="xl" variant="outline" className="h-auto py-4">
           <Link href="/items">Browse Items</Link>
         </Button>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-4">
-        <Card>
-          <CardHeader><CardTitle>My Items</CardTitle><CardDescription>View and manage your reported items</CardDescription></CardHeader>
-          <CardContent><Button asChild variant="outline" className="w-full"><Link href="/dashboard/items">View All</Link></Button></CardContent>
-        </Card>
-        <Card>
-          <CardHeader><CardTitle>My Claims</CardTitle><CardDescription>Track claims you&apos;ve submitted</CardDescription></CardHeader>
-          <CardContent><Button asChild variant="outline" className="w-full"><Link href="/dashboard/claims">View All</Link></Button></CardContent>
-        </Card>
-        <Card>
-          <CardHeader><CardTitle>Received Claims</CardTitle><CardDescription>Review claims on your found items</CardDescription></CardHeader>
-          <CardContent><Button asChild variant="outline" className="w-full"><Link href="/dashboard/received">View All</Link></Button></CardContent>
-        </Card>
+      <div>
+        <p className="text-[11px] uppercase tracking-wider text-text-muted mb-4">Quick Access</p>
+        <div className="grid md:grid-cols-3 gap-3">
+          {sections.map((section) => (
+            <Link
+              key={section.title}
+              href={section.href}
+              className="group bg-base-850 border border-border-subtle rounded-lg p-5 transition-all duration-200 hover:border-border-default hover:-translate-y-0.5"
+            >
+              <h3 className="text-[14px] font-medium text-text-primary mb-1 group-hover:text-accent transition-colors">{section.title}</h3>
+              <p className="text-[12px] text-text-muted">{section.description}</p>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   )

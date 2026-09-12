@@ -62,26 +62,26 @@ export function ItemForm() {
 
             <section>
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-9 h-9 rounded-xl bg-accent/10 flex items-center justify-center ring-1 ring-accent/20"><Package className="w-4 h-4 text-accent" /></div>
-          <div><h3 className="text-[15px] font-medium text-foreground">What is it?</h3><p className="text-[12px] text-muted-foreground">Tell us about the item</p></div>
+          <div className="w-9 h-9 rounded-md bg-accent/10 flex items-center justify-center ring-1 ring-accent/20"><Package className="w-4 h-4 text-accent" /></div>
+          <div><h3 className="text-[15px] font-medium text-text-primary">What is it?</h3><p className="text-[12px] text-text-muted">Tell us about the item</p></div>
         </div>
         <div className="space-y-5">
           <div className="space-y-2">
             <Label htmlFor="title">Item name</Label>
             <Input id="title" placeholder="e.g., Black wireless earbuds" {...register('title')} disabled={isPending} />
-            {errors.title && <p className="text-[12px] text-destructive">{errors.title.message}</p>}
+            {errors.title && <p className="text-[12px] text-status-lost">{errors.title.message}</p>}
           </div>
           <div className="space-y-2">
             <Label htmlFor="description">Description</Label>
             <Textarea id="description" placeholder="Describe the item in detail..." rows={3} {...register('description')} disabled={isPending} />
-            {errors.description && <p className="text-[12px] text-destructive">{errors.description.message}</p>}
+            {errors.description && <p className="text-[12px] text-status-lost">{errors.description.message}</p>}
           </div>
           <div className="grid sm:grid-cols-2 gap-5">
             <div className="space-y-2">
               <Label>Type</Label>
               <div className="flex gap-2">
-                <button type="button" onClick={() => setValue('type', 'LOST')} className={`flex-1 h-10 rounded-lg text-[13px] font-medium border transition-all duration-200 ${selectedType === 'LOST' ? 'border-primary bg-primary/5 text-foreground' : 'border-border text-muted-foreground hover:border-border/60'}`}>Lost</button>
-                <button type="button" onClick={() => setValue('type', 'FOUND')} className={`flex-1 h-10 rounded-lg text-[13px] font-medium border transition-all duration-200 ${selectedType === 'FOUND' ? 'border-primary bg-primary/5 text-foreground' : 'border-border text-muted-foreground hover:border-border/60'}`}>Found</button>
+                <button type="button" onClick={() => setValue('type', 'LOST')} className={`flex-1 h-10 rounded-lg text-[13px] font-medium border transition-all duration-200 ${selectedType === 'LOST' ? 'border-primary bg-accent/5 text-text-primary' : 'border-border-subtle text-text-muted hover:border-border-subtle'}`}>Lost</button>
+                <button type="button" onClick={() => setValue('type', 'FOUND')} className={`flex-1 h-10 rounded-lg text-[13px] font-medium border transition-all duration-200 ${selectedType === 'FOUND' ? 'border-primary bg-accent/5 text-text-primary' : 'border-border-subtle text-text-muted hover:border-border-subtle'}`}>Found</button>
               </div>
             </div>
             <div className="space-y-2">
@@ -91,7 +91,7 @@ export function ItemForm() {
                 <SelectContent>{categories.map((cat) => (<SelectItem key={cat.value} value={cat.value}>{cat.label}</SelectItem>))}</SelectContent>
               </Select>
               <input type="hidden" {...register('category')} />
-              {errors.category && <p className="text-[12px] text-destructive">{errors.category.message}</p>}
+              {errors.category && <p className="text-[12px] text-status-lost">{errors.category.message}</p>}
             </div>
           </div>
           <div className="space-y-2">
@@ -102,33 +102,33 @@ export function ItemForm() {
       </section>
             <section>
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-9 h-9 rounded-xl bg-accent/10 flex items-center justify-center ring-1 ring-accent/20"><MapPin className="w-4 h-4 text-accent" /></div>
-          <div><h3 className="text-[15px] font-medium text-foreground">Where and when?</h3><p className="text-[12px] text-muted-foreground">Help narrow down the search</p></div>
+          <div className="w-9 h-9 rounded-md bg-accent/10 flex items-center justify-center ring-1 ring-accent/20"><MapPin className="w-4 h-4 text-accent" /></div>
+          <div><h3 className="text-[15px] font-medium text-text-primary">Where and when?</h3><p className="text-[12px] text-text-muted">Help narrow down the search</p></div>
         </div>
         <div className="grid sm:grid-cols-2 gap-5">
           <div className="space-y-2">
             <Label htmlFor="location">Location</Label>
             <Input id="location" placeholder="e.g., Main Library, 2nd floor" {...register('location')} disabled={isPending} />
-            {errors.location && <p className="text-[12px] text-destructive">{errors.location.message}</p>}
+            {errors.location && <p className="text-[12px] text-status-lost">{errors.location.message}</p>}
           </div>
           <div className="space-y-2">
             <Label htmlFor="date_lost_found">{selectedType === 'LOST' ? 'Date Lost' : 'Date Found'}</Label>
             <Input id="date_lost_found" type="date" {...register('date_lost_found')} disabled={isPending} />
-            {errors.date_lost_found && <p className="text-[12px] text-destructive">{errors.date_lost_found.message}</p>}
+            {errors.date_lost_found && <p className="text-[12px] text-status-lost">{errors.date_lost_found.message}</p>}
           </div>
         </div>
       </section>
 
             <section>
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-9 h-9 rounded-xl bg-accent/10 flex items-center justify-center ring-1 ring-accent/20"><Shield className="w-4 h-4 text-accent" /></div>
-          <div><h3 className="text-[15px] font-medium text-foreground">Help verify ownership</h3><p className="text-[12px] text-muted-foreground">Optional —" used only during claim review</p></div>
+          <div className="w-9 h-9 rounded-md bg-accent/10 flex items-center justify-center ring-1 ring-accent/20"><Shield className="w-4 h-4 text-accent" /></div>
+          <div><h3 className="text-[15px] font-medium text-text-primary">Help verify ownership</h3><p className="text-[12px] text-text-muted">Optional —" used only during claim review</p></div>
         </div>
         <div className="space-y-2">
           <Label htmlFor="private_verification">Private verification detail</Label>
           <Textarea id="private_verification" placeholder="e.g., Small tear on the right shoulder strap" rows={3} {...register('private_verification')} disabled={isPending} />
-          <p className="text-[11px] text-muted-foreground">This information is private and is used to help verify a claim. It won&apos;t be displayed publicly.</p>
-          {errors.private_verification && <p className="text-[12px] text-destructive">{errors.private_verification.message}</p>}
+          <p className="text-[11px] text-text-muted">This information is private and is used to help verify a claim. It won&apos;t be displayed publicly.</p>
+          {errors.private_verification && <p className="text-[12px] text-status-lost">{errors.private_verification.message}</p>}
         </div>
       </section>
 

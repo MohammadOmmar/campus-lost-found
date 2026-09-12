@@ -53,11 +53,11 @@ export function MatchCandidateCard({
         delay: reduceMotion ? 0 : index * 0.08,
         ease: [0.4, 0, 0.2, 1],
       }}
-      className="bg-card border border-border/40 rounded-2xl overflow-hidden transition-colors duration-200 hover:border-border/70"
+      className="bg-base-850 border border-border-subtle rounded-lg overflow-hidden transition-colors duration-200 hover:border-border-subtle"
     >
       <div className="grid md:grid-cols-[240px_1fr] gap-0">
         {/* Image */}
-        <div className="relative aspect-[16/10] md:aspect-auto md:min-h-[220px] bg-secondary/40 flex items-center justify-center overflow-hidden">
+        <div className="relative aspect-[16/10] md:aspect-auto md:min-h-[220px] bg-base-700/40 flex items-center justify-center overflow-hidden">
           {candidate.image_url ? (
             <Image
               src={candidate.image_url}
@@ -67,13 +67,13 @@ export function MatchCandidateCard({
               className="object-cover"
             />
           ) : (
-            <Package className="w-10 h-10 text-muted-foreground/30" />
+            <Package className="w-10 h-10 text-text-muted/30" />
           )}
           <div className="absolute top-3 left-3">
             <span
               className={`inline-flex items-center px-2.5 py-1 rounded-full text-caption font-medium ${
                                 isLost
-                  ? 'bg-destructive/10 text-destructive'
+                  ? 'bg-status-lost/10 text-status-lost'
                   : 'bg-status-found/10 text-status-found'
               }`}
             >
@@ -86,9 +86,9 @@ export function MatchCandidateCard({
         <div className="p-6 md:p-8">
           <MatchScore total={score.total} breakdown={score.breakdown} index={index} />
 
-          <div className="mt-5 pt-5 border-t border-border/30">
+          <div className="mt-5 pt-5 border-t border-border-subtle">
             <h3 className="text-h3 mb-2">{candidate.title}</h3>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-small text-muted-foreground mb-3">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-small text-text-muted mb-3">
               <span className="inline-flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5" />
                 {candidate.location}
@@ -99,12 +99,12 @@ export function MatchCandidateCard({
               </span>
               <span className="text-caption">{candidate.category}</span>
             </div>
-            <p className="text-body text-muted-foreground line-clamp-3 mb-4">
+            <p className="text-body text-text-muted line-clamp-3 mb-4">
               {candidate.description}
             </p>
             <Link
               href={`/items/${candidate.id}`}
-              className="inline-flex items-center gap-1.5 text-small font-medium text-foreground hover:gap-2.5 transition-all"
+              className="inline-flex items-center gap-1.5 text-small font-medium text-text-primary hover:gap-2.5 transition-all"
             >
               View this report
               <ArrowRight className="w-4 h-4" />

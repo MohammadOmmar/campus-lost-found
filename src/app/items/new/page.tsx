@@ -11,7 +11,7 @@ export default async function NewItemPage() {
     <div className="container-tight pt-24 pb-12">
       <div className="mb-10">
         <h1 className="text-h1 mb-3">Report an Item</h1>
-        <p className="text-body text-muted-foreground">Provide details about the lost or found item to help reunite it with its owner.</p>
+        <p className="text-body text-text-muted">Provide details about the lost or found item to help reunite it with its owner.</p>
       </div>
       <ItemForm />
     </div>

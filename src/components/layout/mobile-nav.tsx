@@ -39,7 +39,7 @@ export function MobileNav({ user }: MobileNavProps) {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden p-2 -mr-2 text-foreground hover:text-muted-foreground transition-colors"
+        className="md:hidden p-2 -mr-2 text-text-primary hover:text-text-muted transition-colors"
         aria-label={isOpen ? 'Close menu' : 'Open menu'}
         aria-expanded={isOpen}
       >
@@ -49,13 +49,13 @@ export function MobileNav({ user }: MobileNavProps) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 top-[72px] z-50 bg-background md:hidden overflow-y-auto"
+            className="fixed inset-0 top-[60px] z-50 bg-base-950 md:hidden overflow-y-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25, ease: easeOut }}
           >
-            <div className="container-wide py-6 pb-10">
+            <div className="container-tight py-6 pb-10">
               <nav className="flex flex-col gap-1 mb-8" aria-label="Mobile navigation">
                 {navLinks.map((link, i) => (
                   <motion.div
@@ -67,10 +67,10 @@ export function MobileNav({ user }: MobileNavProps) {
                     <Link
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className={`block py-3 px-4 rounded-xl text-[15px] transition-colors ${
+                      className={`block py-3 px-4 rounded-md text-[15px] transition-colors ${
                         pathname === link.href
-                          ? 'bg-secondary text-foreground'
-                          : 'text-muted-foreground hover:bg-secondary/50 hover:text-foreground'
+                          ? 'bg-base-800 text-text-primary'
+                          : 'text-text-secondary hover:bg-base-800 hover:text-text-primary'
                       }`}
                     >
                       {link.label}
@@ -85,15 +85,15 @@ export function MobileNav({ user }: MobileNavProps) {
                   <Link
                     href="/items/new"
                     onClick={() => setIsOpen(false)}
-                    className="block py-3 px-4 rounded-xl text-[15px] text-muted-foreground hover:bg-secondary/50 hover:text-foreground transition-colors"
+                    className="block py-3 px-4 rounded-md text-[15px] text-text-secondary hover:bg-base-800 hover:text-text-primary transition-colors"
                   >
-                    How It Works
+                    Report
                   </Link>
                 </motion.div>
               </nav>
 
               <motion.div
-                className="border-t border-border/40 pt-6 flex flex-col gap-3"
+                className="border-t border-border-subtle pt-6 flex flex-col gap-3"
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.15, ease: easeOut }}
@@ -108,12 +108,12 @@ export function MobileNav({ user }: MobileNavProps) {
                     </Button>
                     <Button asChild className="w-full h-11" size="lg">
                       <Link href="/items/new" onClick={() => setIsOpen(false)}>
-                        Report an Item
+                        Report Item
                       </Link>
                     </Button>
                     <Button
                       variant="ghost"
-                      className="w-full justify-start h-11 text-muted-foreground"
+                      className="w-full justify-start h-11 text-text-muted"
                       size="lg"
                       onClick={handleSignOut}
                     >
@@ -130,7 +130,7 @@ export function MobileNav({ user }: MobileNavProps) {
                     </Button>
                     <Button asChild className="w-full h-11" size="lg">
                       <Link href="/items/new" onClick={() => setIsOpen(false)}>
-                        Report an Item
+                        Report Item
                       </Link>
                     </Button>
                   </>

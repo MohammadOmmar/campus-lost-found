@@ -113,12 +113,12 @@ export function EditItemForm({ item }: EditItemFormProps) {
       {/* Section: What is it? */}
       <section>
         <div className="flex items-center gap-3 mb-8">
-          <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center">
-            <Package className="w-5 h-5 text-foreground" />
+          <div className="w-10 h-10 rounded-xl bg-base-700 flex items-center justify-center">
+            <Package className="w-5 h-5 text-text-primary" />
           </div>
           <div>
             <h3 className="text-h3">What is it?</h3>
-            <p className="text-small text-muted-foreground">Tell us about the item</p>
+            <p className="text-small text-text-muted">Tell us about the item</p>
           </div>
         </div>
 
@@ -126,13 +126,13 @@ export function EditItemForm({ item }: EditItemFormProps) {
           <div className="space-y-3">
             <Label htmlFor="title">Title</Label>
             <Input id="title" {...register('title')} disabled={isPending} />
-            {errors.title && <p className="text-small text-destructive">{errors.title.message}</p>}
+            {errors.title && <p className="text-small text-status-lost">{errors.title.message}</p>}
           </div>
 
           <div className="space-y-3">
             <Label htmlFor="description">Description</Label>
             <Textarea id="description" rows={4} {...register('description')} disabled={isPending} />
-            {errors.description && <p className="text-small text-destructive">{errors.description.message}</p>}
+            {errors.description && <p className="text-small text-status-lost">{errors.description.message}</p>}
           </div>
 
           <div className="space-y-3">
@@ -148,7 +148,7 @@ export function EditItemForm({ item }: EditItemFormProps) {
               </SelectContent>
             </Select>
             <input type="hidden" {...register('category')} />
-            {errors.category && <p className="text-small text-destructive">{errors.category.message}</p>}
+            {errors.category && <p className="text-small text-status-lost">{errors.category.message}</p>}
           </div>
 
           <div className="space-y-3">
@@ -165,12 +165,12 @@ export function EditItemForm({ item }: EditItemFormProps) {
 {/* Section: Where and When? */}
       <section>
         <div className="flex items-center gap-3 mb-8">
-          <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center">
-            <MapPin className="w-5 h-5 text-foreground" />
+          <div className="w-10 h-10 rounded-xl bg-base-700 flex items-center justify-center">
+            <MapPin className="w-5 h-5 text-text-primary" />
           </div>
           <div>
             <h3 className="text-h3">Where and when?</h3>
-            <p className="text-small text-muted-foreground">Help narrow down the search</p>
+            <p className="text-small text-text-muted">Help narrow down the search</p>
           </div>
         </div>
 
@@ -178,14 +178,14 @@ export function EditItemForm({ item }: EditItemFormProps) {
           <div className="space-y-3">
             <Label htmlFor="location">Location</Label>
             <Input id="location" {...register('location')} disabled={isPending} />
-            {errors.location && <p className="text-small text-destructive">{errors.location.message}</p>}
+            {errors.location && <p className="text-small text-status-lost">{errors.location.message}</p>}
           </div>
           <div className="space-y-3">
             <Label htmlFor="date_lost_found">
               {selectedType === 'LOST' ? 'Date Lost' : 'Date Found'}
             </Label>
             <Input id="date_lost_found" type="date" {...register('date_lost_found')} disabled={isPending} />
-            {errors.date_lost_found && <p className="text-small text-destructive">{errors.date_lost_found.message}</p>}
+            {errors.date_lost_found && <p className="text-small text-status-lost">{errors.date_lost_found.message}</p>}
           </div>
         </div>
       </section>
@@ -193,20 +193,20 @@ export function EditItemForm({ item }: EditItemFormProps) {
       {/* Section: Help Verify Ownership */}
       <section>
         <div className="flex items-center gap-3 mb-8">
-          <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center">
-            <Shield className="w-5 h-5 text-foreground" />
+          <div className="w-10 h-10 rounded-xl bg-base-700 flex items-center justify-center">
+            <Shield className="w-5 h-5 text-text-primary" />
           </div>
           <div>
             <h3 className="text-h3">Help verify ownership</h3>
-            <p className="text-small text-muted-foreground">Optional —" used only during claim review</p>
+            <p className="text-small text-text-muted">Optional —" used only during claim review</p>
           </div>
         </div>
 
         <div className="space-y-3">
           <Label htmlFor="private_verification">Private verification detail</Label>
           <Textarea id="private_verification" rows={3} {...register('private_verification')} disabled={isPending} />
-          <p className="text-caption text-muted-foreground">This information is private and is used to help verify a claim.</p>
-          {errors.private_verification && <p className="text-small text-destructive">{errors.private_verification.message}</p>}
+          <p className="text-caption text-text-muted">This information is private and is used to help verify a claim.</p>
+          {errors.private_verification && <p className="text-small text-status-lost">{errors.private_verification.message}</p>}
         </div>
       </section>
 

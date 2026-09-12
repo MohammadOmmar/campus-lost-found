@@ -35,7 +35,7 @@ export default async function ItemsPage({ searchParams }: ItemsPageProps) {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-10">
         <div>
           <h1 className="text-h1 mb-2">Browse Items</h1>
-          <p className="text-body text-muted-foreground">Search for lost and found items on campus</p>
+          <p className="text-body text-text-muted">Search for lost and found items on campus</p>
         </div>
         <Button asChild size="lg" className="h-10 rounded-full px-5">
           <Link href="/items/new"><Plus className="mr-2 w-4 h-4" /> Report Item</Link>
@@ -53,7 +53,7 @@ export default async function ItemsPage({ searchParams }: ItemsPageProps) {
         </>
       ) : (
         <div className="text-center py-20">
-          <p className="text-body text-muted-foreground mb-4">No items found matching your criteria.</p>
+          <p className="text-body text-text-muted mb-4">No items found matching your criteria.</p>
           <Button asChild variant="outline"><Link href="/items/new">Report an Item</Link></Button>
         </div>
       )}

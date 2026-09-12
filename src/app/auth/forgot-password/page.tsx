@@ -74,9 +74,9 @@ export default function ForgotPasswordPage() {
             <Button type="submit" className="w-full" size="lg" disabled={loading || success}>
               {loading ? 'Sending...' : 'Send reset link'}
             </Button>
-            <p className="text-small text-muted-foreground">
+            <p className="text-small text-text-muted">
               Remember your password?{' '}
-              <Link href="/auth/login" className="text-foreground hover:underline font-medium">
+              <Link href="/auth/login" className="text-text-primary hover:underline font-medium">
                 Log in
               </Link>
             </p>

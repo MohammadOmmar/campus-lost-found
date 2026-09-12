@@ -66,7 +66,7 @@ export function ItemFilters() {
     <div className="space-y-4">
       <form onSubmit={handleSearch} className="flex gap-3">
         <div className="relative flex-1">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
           <Input name="q" placeholder="Search items..." defaultValue={searchParams.get('q') || ''} className="pl-10 h-10" />
         </div>
         <Button type="submit" className="h-10">Search</Button>

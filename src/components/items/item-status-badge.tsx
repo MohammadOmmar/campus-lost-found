@@ -3,10 +3,10 @@ import { cn } from '@/lib/utils'
 type ItemStatus = 'OPEN' | 'CLAIMED' | 'RETURNED' | 'CLOSED'
 
 const STATUS_STYLES: Record<ItemStatus, string> = {
-  OPEN: 'bg-secondary/10 text-muted-foreground',
+  OPEN: 'bg-base-700/10 text-text-muted',
   CLAIMED: 'bg-status-match/10 text-status-match',
   RETURNED: 'bg-status-found/10 text-status-found',
-  CLOSED: 'bg-muted/50 text-muted-foreground',
+  CLOSED: 'bg-muted/50 text-text-muted',
 }
 
 const STATUS_LABELS: Record<ItemStatus, string> = {

@@ -38,7 +38,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
       <div className="flex items-center gap-1">
         {pages.map((page, index) =>
           page === '...' ? (
-            <span key={`ellipsis-${index}`} className="px-2 text-muted-foreground">
+            <span key={`ellipsis-${index}`} className="px-2 text-text-muted">
               ...
             </span>
           ) : (

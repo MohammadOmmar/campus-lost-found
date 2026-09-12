@@ -1,0 +1,16 @@
+var fs = require('fs');
+var c = fs.readFileSync('src/components/home/how-it-works.tsx', 'utf8');
+var dq = (c.match(/\"/g) || []).length;
+var sq = (c.match(/'/g) || []).length;
+console.log('DQ:', dq);
+console.log('SQ:', sq);
+console.log('Lines:', c.split('\n').length);
+console.log('bg-accent:', c.includes('bg-accent'));
+console.log('CheckCircle2:', c.includes('CheckCircle2'));
+console.log('text-accent:', c.includes('text-accent'));
+console.log('grid gap-8:', c.includes('grid gap-8'));
+console.log('bg-accent/5:', c.includes('bg-accent/5'));
+console.log('blur-3xl:', c.includes('blur-3xl'));
+console.log('easeOut:', c.includes('easeOut'));
+console.log('First line:', JSON.stringify(c.split('\n')[0]));
+console.log('Line 6:', JSON.stringify(c.split('\n')[5]));
