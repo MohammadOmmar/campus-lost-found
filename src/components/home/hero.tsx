@@ -34,24 +34,25 @@ export function Hero() {
       <div className="container-tight relative z-10">
         {/* Terminal prompt bar */}
         <motion.div
-          className="surface-raised flex items-center gap-4 px-4 py-3 rounded-lg mb-12 text-[13px] font-mono max-w-fit"
+          className="surface-raised flex flex-wrap items-center gap-x-3 gap-y-2 px-4 py-3 rounded-lg mb-12 text-[13px] font-mono max-w-full min-w-0"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: easeOut }}
         >
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <Terminal className="w-4 h-4 text-accent/70" />
             <span className="text-text-muted">{'>'}</span>
           </div>
-          <div className="flex items-center gap-3 text-[12px]">
+          <div className="flex items-center gap-2 sm:gap-3 text-[12px] min-w-0">
             {terminalLines.map((line, i) => (
-              <span key={i} className={line.accent ? 'text-accent' : 'text-text-muted/60'}>
+              <span key={i} className={`${line.accent ? 'text-accent' : 'text-text-muted/60'} ${i > 0 ? 'hidden sm:inline' : ''} whitespace-nowrap`}>
                 {line.prefix && <span className="text-accent">{line.prefix}</span>}
-                <span className="ml-1">{line.value}</span>
+                {i === 0 && <span className="ml-1 inline sm:hidden">…</span>}
+                <span className={i === 0 ? 'hidden sm:inline ml-1' : 'ml-1'}>{line.value}</span>
               </span>
             ))}
           </div>
-          <div className="flex items-center gap-2 ml-4 pl-4 border-l border-border-subtle">
+          <div className="flex items-center gap-2 ml-auto pl-3 sm:pl-4 border-l border-border-subtle shrink-0">
             <Activity className="w-3 h-3 text-accent" />
             <span className="text-accent text-[11px]">LIVE</span>
           </div>
@@ -99,7 +100,7 @@ export function Hero() {
 
         {/* Stats row */}
         <motion.div
-          className="flex flex-wrap gap-10 mb-14"
+          className="flex flex-wrap gap-x-10 gap-y-4 mb-14"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5, ease: easeOut }}

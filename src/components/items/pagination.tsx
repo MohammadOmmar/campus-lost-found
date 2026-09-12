@@ -24,7 +24,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
   const pages = getPageNumbers(currentPage, totalPages)
 
   return (
-    <nav className="flex items-center justify-center gap-2" aria-label="Pagination">
+    <nav className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2" aria-label="Pagination">
       <Button
         variant="outline"
         size="sm"
@@ -35,10 +35,10 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
         <ChevronLeft className="w-4 h-4" />
       </Button>
 
-      <div className="flex items-center gap-1">
+      <div className="flex flex-wrap items-center gap-0.5 sm:gap-1">
         {pages.map((page, index) =>
           page === '...' ? (
-            <span key={`ellipsis-${index}`} className="px-2 text-text-muted">
+            <span key={`ellipsis-${index}`} className="px-1.5 text-text-muted">
               ...
             </span>
           ) : (
@@ -48,7 +48,7 @@ export function Pagination({ currentPage, totalPages }: PaginationProps) {
               size="sm"
               onClick={() => goToPage(page as number)}
               aria-current={currentPage === page ? 'page' : undefined}
-              className="w-10"
+              className="w-8 sm:w-10"
             >
               {page}
             </Button>
