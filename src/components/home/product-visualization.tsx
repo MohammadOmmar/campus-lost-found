@@ -16,7 +16,7 @@ function Card({ badge, badgeColor, icon: Icon, iconColor, children, active = fal
   return (
     <motion.div
       className={`bg-base-850 border rounded-lg p-5 transition-all duration-300 ${
-        active ? 'border-accent/30 shadow-[0_0_20px_rgba(200,255,0,0.05)]' : 'border-border-subtle hover:border-border-default'
+        active ? 'border-heritage-border/60 shadow-[0_8px_32px_rgba(0,0,0,0.25)]' : 'border-border-subtle hover:border-border-default'
       }`}
       whileHover={{ y: -2 }}
     >
@@ -45,19 +45,19 @@ export function ProductVisualization() {
             </Card>
           </motion.div>
           <motion.div className="flex items-center justify-center pt-14" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.5, ease: easeOut }}>
-            <div className="flex flex-col items-center gap-1"><ArrowRight className="w-4 h-4 text-accent/40" /><span className="text-[10px] text-accent/60 font-mono">SCAN</span></div>
+            <div className="flex flex-col items-center gap-1"><ArrowRight className="w-4 h-4 text-text-muted/50" /><span className="text-[10px] text-text-muted/60 font-mono">SCAN</span></div>
           </motion.div>
           <motion.div className="flex-1" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.5, ease: easeOut }}>
-            <Card badge="POTENTIAL MATCH" badgeColor="!text-accent !border-accent-border !bg-accent-muted" icon={Search} iconColor="text-accent/60" active>
+            <Card badge="POTENTIAL MATCH" badgeColor="!text-heritage !border-heritage-border !bg-heritage-muted" icon={Search} iconColor="text-heritage/70" active>
               <div className="flex items-baseline gap-2 mb-3">
-                <motion.span className="text-3xl font-light text-accent tabular-nums" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.8, ease: easeOut }}>87%</motion.span>
+                <motion.span className="text-3xl font-light text-heritage tabular-nums" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, delay: 0.8, ease: easeOut }}>87%</motion.span>
                 <span className="text-[12px] text-text-muted">match score</span>
               </div>
               <p className="text-[12px] text-text-muted">Same category, nearby location, close date</p>
             </Card>
           </motion.div>
           <motion.div className="flex items-center justify-center pt-14" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.8, ease: easeOut }}>
-            <div className="flex flex-col items-center gap-1"><ArrowRight className="w-4 h-4 text-accent/40" /><span className="text-[10px] text-accent/60 font-mono">VERIFY</span></div>
+            <div className="flex flex-col items-center gap-1"><ArrowRight className="w-4 h-4 text-text-muted/50" /><span className="text-[10px] text-text-muted/60 font-mono">VERIFY</span></div>
           </motion.div>
           <motion.div className="flex-1" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.8, ease: easeOut }}>
             <Card badge="VERIFICATION" badgeColor="!text-status-verification !border-status-verification/20 !bg-status-verification/10" icon={Shield} iconColor="text-text-muted">
@@ -94,18 +94,18 @@ export function ProductVisualization() {
         <motion.div className="flex justify-center py-1" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, ease: easeOut }}>
           <div className="flex flex-col items-center gap-1"><ArrowRight className="w-3.5 h-3.5 text-accent/40 rotate-90" /><span className="text-[9px] text-accent/60 font-mono">SCAN</span></div>
         </motion.div>
-        <motion.div className="bg-base-850 border border-accent/30 rounded-lg p-4 shadow-[0_0_20px_rgba(200,255,0,0.05)]" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2, ease: easeOut }}>
+        <motion.div className="bg-base-850 border border-heritage-border/60 rounded-lg p-4 shadow-[0_8px_32px_rgba(0,0,0,0.25)]" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.2, ease: easeOut }}>
           <div className="flex items-start gap-4">
-            <div className="w-14 h-14 bg-accent/5 rounded-md flex items-center justify-center shrink-0 border border-accent/20"><Search className="w-6 h-6 text-accent/70" /></div>
+            <div className="w-14 h-14 bg-heritage-muted rounded-md flex items-center justify-center shrink-0 border border-heritage-border/60"><Search className="w-6 h-6 text-heritage/80" /></div>
             <div className="flex-1 min-w-0">
-              <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-accent/15 text-accent text-[10px] font-medium tracking-wide mb-2">POTENTIAL MATCH</span>
-              <div className="flex items-baseline gap-2 mb-1"><span className="text-xl font-semibold text-accent">87%</span><span className="text-[12px] text-text-muted">match</span></div>
+              <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-heritage-muted text-heritage text-[10px] font-medium tracking-wide mb-2">POTENTIAL MATCH</span>
+              <div className="flex items-baseline gap-2 mb-1"><span className="text-xl font-semibold text-heritage">87%</span><span className="text-[12px] text-text-muted">match</span></div>
               <p className="text-[12px] text-text-muted">Same category, nearby location</p>
             </div>
           </div>
         </motion.div>
         <motion.div className="flex justify-center py-1" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, ease: easeOut }}>
-          <div className="flex flex-col items-center gap-1"><ArrowRight className="w-3.5 h-3.5 text-accent/40 rotate-90" /><span className="text-[9px] text-accent/60 font-mono">VERIFY</span></div>
+          <div className="flex flex-col items-center gap-1"><ArrowRight className="w-3.5 h-3.5 text-text-muted/50 rotate-90" /><span className="text-[9px] text-text-muted/60 font-mono">VERIFY</span></div>
         </motion.div>
         <motion.div className="bg-base-850 border border-border-subtle rounded-lg p-4" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.4, ease: easeOut }}>
           <div className="flex items-start gap-4">
@@ -118,7 +118,7 @@ export function ProductVisualization() {
           </div>
         </motion.div>
         <motion.div className="flex justify-center py-1" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, ease: easeOut }}>
-          <div className="flex flex-col items-center gap-1"><ArrowRight className="w-3.5 h-3.5 text-accent/40 rotate-90" /><span className="text-[9px] text-accent/60 font-mono">RETURN</span></div>
+          <div className="flex flex-col items-center gap-1"><ArrowRight className="w-3.5 h-3.5 text-text-muted/50 rotate-90" /><span className="text-[9px] text-text-muted/60 font-mono">RETURN</span></div>
         </motion.div>
         <motion.div className="bg-base-850 border border-border-subtle rounded-lg p-4" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.6, ease: easeOut }}>
           <div className="flex items-start gap-4">

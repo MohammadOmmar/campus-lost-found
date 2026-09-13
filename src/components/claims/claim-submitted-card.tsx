@@ -27,7 +27,7 @@ export function ClaimSubmittedCard({
         <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             href="/dashboard/claims"
-            className="inline-flex items-center justify-center rounded-xl bg-accent px-6 py-3 text-small font-medium text-base-950 transition-colors hover:bg-accent/90"
+            className="inline-flex items-center justify-center rounded-md bg-accent px-6 py-3 text-small font-medium text-white transition-colors hover:bg-accent-dim"
           >
             Track my claims
           </Link>

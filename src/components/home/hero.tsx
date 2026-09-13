@@ -39,7 +39,7 @@ export function Hero() {
     >
       {/* Atmospheric background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(200,255,0,0.04)_0%,transparent_50%)]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(47,128,237,0.06)_0%,transparent_50%)]" />
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-base-950 to-transparent" />
       </div>
 
@@ -55,27 +55,27 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease: easeOutExpo }}
           >
-            Campus Community
+            Campus Lost & Found
           </motion.span>
 
           <motion.h1
-            className="text-display-lg text-text-primary max-w-[20ch] leading-[0.95]"
+            className="text-display-lg text-text-primary max-w-[22ch] leading-[1.08]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15, ease: easeOutExpo }}
           >
             Lost something
             <br />
-            <span className="text-glow-accent">on campus?</span>
+            <span className="italic">on campus?</span>
           </motion.h1>
 
           <motion.p
-            className="text-body-large max-w-sm mt-5"
+            className="text-body-large max-w-md mt-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3, ease: easeOutExpo }}
           >
-            Report it, find it, and bring it back.
+            Report what you lost, share what you found, and verify ownership when the right match appears.
           </motion.p>
 
           {/* CTAs */}
@@ -87,12 +87,12 @@ export function Hero() {
           >
             <Button size="lg" className="h-12 px-6 text-[14px] font-medium" asChild>
               <Link href="/items/new">
-                Report an Item
+                Report Lost
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
             <Button variant="outline" size="lg" className="h-12 px-6 text-[14px]" asChild>
-              <Link href="/items">Browse Items</Link>
+              <Link href="/items">Browse Found</Link>
             </Button>
           </motion.div>
         </motion.div>

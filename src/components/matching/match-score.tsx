@@ -63,7 +63,7 @@ export function MatchScore({ total, breakdown, index = 0 }: MatchScoreProps) {
             fill="none"
             strokeWidth="6"
             strokeLinecap="round"
-                        className="stroke-accent"
+                        className="stroke-heritage"
             strokeDasharray={circumference}
             initial={{ strokeDashoffset: circumference }}
             animate={{
@@ -101,7 +101,7 @@ export function MatchScore({ total, breakdown, index = 0 }: MatchScoreProps) {
               </span>
               <div className="flex-1 h-1 rounded-full bg-base-700 overflow-hidden">
                 <motion.div
-                  className="h-full rounded-full bg-accent"
+                  className="h-full rounded-full bg-heritage"
                   initial={{ width: 0 }}
                   animate={{ width: `${(f.points / f.max) * 100}%` }}
                   transition={{

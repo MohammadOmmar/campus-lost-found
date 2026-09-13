@@ -97,7 +97,7 @@ export function HowItWorks() {
             {/* Progress line */}
             <div className="hidden lg:block absolute left-5 top-0 bottom-0 w-px bg-border-subtle">
               <motion.div
-                className="w-full bg-accent origin-top"
+                className="w-full bg-heritage/70 origin-top"
                 style={{ height: progressHeight }}
               />
             </div>
@@ -129,7 +129,7 @@ export function HowItWorks() {
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3 mb-1">
-                      <span className="text-caption text-text-muted">{step.step}</span>
+                      <span className="text-caption text-heritage/80">{step.step}</span>
                       <h3 className="text-[15px] font-medium text-text-primary group-hover:text-accent transition-colors">
                         {step.title}
                       </h3>

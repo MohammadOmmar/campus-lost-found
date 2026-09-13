@@ -71,14 +71,14 @@ export function PrivacyVerification() {
           </motion.div>
 
           <motion.div
-            className="bg-base-850/50 border border-accent/15 rounded-xl p-6"
+            className="bg-base-850/50 border border-heritage-border/60 rounded-xl p-6"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3, ease: easeOutExpo }}
           >
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-9 h-9 rounded-lg bg-accent/8 flex items-center justify-center border border-accent-border"><EyeOff className="w-4 h-4 text-accent" /></div>
+              <div className="w-9 h-9 rounded-lg bg-heritage-muted flex items-center justify-center border border-heritage-border"><EyeOff className="w-4 h-4 text-heritage" /></div>
               <div><h4 className="text-[14px] font-medium text-text-primary">Private</h4><p className="text-[12px] text-text-muted">Only during claim review</p></div>
             </div>
             <InfoRow label="Verification" value="•••••••••••••••" masked />

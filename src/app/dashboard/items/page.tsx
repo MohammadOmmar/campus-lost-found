@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/supabase/server'
+﻿import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, Package } from 'lucide-react'
@@ -40,10 +40,10 @@ export default async function MyItemsPage() {
           <h2 className="text-h3 mb-2">Could not load your items</h2>
           <p className="text-body text-text-muted">
             We encountered an error. Please try again in a moment.
-          </p>
+                    </p>
           <Link
             href="/dashboard"
-            className="mt-6 inline-flex items-center justify-center rounded-md bg-accent px-6 py-3 text-small font-medium text-base-950 transition-colors hover:bg-accent/90"
+            className="mt-6 inline-flex items-center justify-center rounded-md bg-accent px-6 py-3 text-small font-medium text-white transition-colors hover:bg-accent-dim"
           >
             Back to dashboard
           </Link>
@@ -99,12 +99,12 @@ function EmptyItemsState() {
       </div>
       <h2 className="text-h3 mb-2">You haven&apos;t reported anything yet</h2>
       <p className="text-body text-text-muted measure-default mb-6">
-        Start by reporting a lost or found item —" it takes less than a minute.
+        Start by reporting a lost or found item &mdash; it takes less than a minute.
       </p>
-      <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
         <Link
           href="/items/new?type=LOST"
-          className="inline-flex items-center justify-center rounded-md bg-accent px-6 py-3 text-small font-medium text-base-950 transition-colors hover:bg-accent/90"
+          className="inline-flex items-center justify-center rounded-md bg-accent px-6 py-3 text-small font-medium text-white transition-colors hover:bg-accent-dim"
         >
           Report a lost item
         </Link>
@@ -128,5 +128,6 @@ function ItemList({ items }: { items: ItemListItem[] }) {
     </div>
   )
 }
+
 
 
