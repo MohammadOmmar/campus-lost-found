@@ -2,9 +2,9 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, MapPin, Calendar, Package } from 'lucide-react'
+import { ArrowRight, MapPin } from 'lucide-react'
 
-const easeOut = [0.4, 0, 0.2, 1] as const
+const easeOutExpo = [0.16, 1, 0.3, 1] as const
 
 const items = [
   { id: '1', type: 'LOST', title: 'Black wireless earbuds', location: 'Main Library', date: 'Sep 8, 2026', category: 'Electronics' },
@@ -20,19 +20,28 @@ function ItemCard({ item, index }: { item: typeof items[0]; index: number }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.06, ease: easeOut }}
+      viewport={{ once: true, margin: '0px 0px -60px 0px' }}
+      transition={{ duration: 0.5, delay: index * 0.06, ease: easeOutExpo }}
     >
       <Link
         href="#"
-        className="group block bg-base-850 border border-border-subtle rounded-lg overflow-hidden transition-all duration-200 hover:border-border-strong"
+        className="group block bg-base-850/50 border border-border-subtle rounded-xl overflow-hidden transition-all duration-300 hover:border-border-default hover:-translate-y-[3px] hover:shadow-[0_8px_32px_rgba(0,0,0,0.25),_0_2px_8px_rgba(0,0,0,0.15)]"
       >
-        <div className="relative aspect-[4/3] bg-base-900/50 flex items-center justify-center overflow-hidden">
-          <Package className="w-8 h-8 text-text-muted/20 transition-transform duration-300 group-hover:scale-110" />
+        <div className="relative aspect-[4/3] bg-base-900/40 overflow-hidden">
+          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-base-800/50 to-base-900/50">
+            <div className="w-12 h-12 rounded-xl bg-base-700/30 flex items-center justify-center border border-border-subtle/50">
+              <MapPin className="w-5 h-5 text-text-muted/30" />
+            </div>
+          </div>
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-base-900/60 to-transparent pointer-events-none" />
           <div className="absolute top-3 left-3">
-            <span className={`label-tag ${isLost ? '!text-status-lost !border-status-lost/20 !bg-status-lost/10' : '!text-status-found !border-status-found/20 !bg-status-found/10'}`}>
+            <span className={`inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-medium tracking-wide backdrop-blur-md ${
+              isLost
+                ? 'bg-status-lost/15 text-status-lost border border-status-lost/20'
+                : 'bg-status-found/15 text-status-found border border-status-found/20'
+            }`}>
               {item.type}
             </span>
           </div>
@@ -40,12 +49,17 @@ function ItemCard({ item, index }: { item: typeof items[0]; index: number }) {
 
         <div className="p-4">
           <h4 className="text-[14px] font-medium text-text-primary mb-2 group-hover:text-accent transition-colors line-clamp-1">{item.title}</h4>
-          <div className="space-y-1.5">
-            <div className="flex items-center gap-2 text-[12px] text-text-muted"><MapPin className="w-3 h-3 shrink-0" /><span className="truncate">{item.location}</span></div>
-            <div className="flex items-center gap-2 text-[12px] text-text-muted"><Calendar className="w-3 h-3 shrink-0" /><span>{item.date}</span></div>
+          <div className="flex items-center gap-3 text-[12px] text-text-muted">
+            <span className="inline-flex items-center gap-1"><MapPin className="w-3 h-3" /><span className="truncate">{item.location}</span></span>
+            <span className="text-border-strong">·</span>
+            <span>{item.date}</span>
           </div>
-          <div className="mt-3 pt-3 border-t border-border-subtle">
-            <span className="text-mono">{item.category}</span>
+          <div className="mt-3 pt-3 border-t border-border-subtle/60 flex items-center justify-between">
+            <span className="text-[11px] text-text-muted uppercase tracking-wide">{item.category}</span>
+            <span className="text-[11px] text-text-muted group-hover:text-accent transition-all duration-200 flex items-center gap-1.5">
+              View
+              <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+            </span>
           </div>
         </div>
       </Link>
@@ -60,16 +74,34 @@ export function RecentItems() {
         <div className="flex items-end justify-between mb-12">
           <div>
             <span className="label-tag-accent mb-3 inline-flex">Live Feed</span>
-            <motion.h2 className="text-h2 mt-3 mb-2" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: easeOut }}>
+            <motion.h2
+              className="text-h2 mt-3 mb-2"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: easeOutExpo }}
+            >
               Recent Lost & Found
             </motion.h2>
-            <motion.p className="text-body" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1, ease: easeOut }}>
+            <motion.p
+              className="text-body"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1, ease: easeOutExpo }}
+            >
               Latest items reported on campus
             </motion.p>
           </div>
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2, ease: easeOut }}>
-            <Link href="/items" className="hidden sm:inline-flex items-center gap-2 text-[13px] font-medium text-text-secondary hover:text-accent transition-colors">
-              View all items <ArrowRight className="w-3.5 h-3.5" />
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2, ease: easeOutExpo }}
+          >
+            <Link href="/items" className="hidden sm:inline-flex items-center gap-2 text-[13px] font-medium text-text-secondary hover:text-accent transition-colors group">
+              View all items
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </motion.div>
         </div>

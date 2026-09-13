@@ -41,26 +41,26 @@ export function Navbar() {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-3">
+    <header className="fixed top-0 left-0 right-0 z-50">
       <motion.nav
         className={`
-          mx-auto max-w-5xl rounded-lg border transition-all duration-300
+          w-full border-b transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
           ${scrolled
-            ? 'border-border-default bg-base-950/80 backdrop-blur-xl'
+            ? 'border-border-default bg-base-950/90 backdrop-blur-md'
             : 'border-transparent bg-transparent'
           }
         `}
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="flex h-11 items-center justify-between px-5">
+        <div className="container-tight flex h-12 items-center justify-between">
           {/* Wordmark */}
           <Link
             href="/"
             className="text-[14px] font-medium tracking-tight text-text-primary hover:text-accent transition-colors duration-200 flex items-center gap-2"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-glow" />
+            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
             Campus Lost & Found
           </Link>
 

@@ -29,16 +29,16 @@ export default async function DashboardPage() {
   return (
     <div className="container-tight pt-24 pb-12">
       <div className="mb-10">
-        <p className="text-[11px] uppercase tracking-wider text-text-muted mb-2">Dashboard</p>
+        <p className="text-caption text-text-muted mb-2">Dashboard</p>
         <h1 className="text-h1">Welcome back</h1>
         <p className="text-body text-text-muted mt-2">{profile?.full_name || 'User'}</p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-4 mb-8">
         {stats.map((stat) => (
-          <div key={stat.label} className="bg-base-850 border border-border-subtle rounded-lg p-5">
+          <div key={stat.label} className="bg-base-850/60 border border-border-subtle rounded-xl p-5 hover:border-border-default transition-all duration-300">
             <div className="flex items-center justify-between mb-3">
-              <span className="text-[11px] uppercase tracking-wider text-text-muted">{stat.label}</span>
+              <span className="text-caption text-text-muted">{stat.label}</span>
               <stat.icon className="w-4 h-4 text-text-muted/60" />
             </div>
             <div className="text-2xl font-semibold text-text-primary">{stat.value}</div>
@@ -56,13 +56,13 @@ export default async function DashboardPage() {
       </div>
 
       <div>
-        <p className="text-[11px] uppercase tracking-wider text-text-muted mb-4">Quick Access</p>
+        <p className="text-caption text-text-muted mb-4">Quick Access</p>
         <div className="grid md:grid-cols-3 gap-3">
           {sections.map((section) => (
             <Link
               key={section.title}
               href={section.href}
-              className="group bg-base-850 border border-border-subtle rounded-lg p-5 transition-all duration-200 hover:border-border-default hover:-translate-y-0.5"
+              className="group bg-base-850/60 border border-border-subtle rounded-xl p-5 transition-all duration-300 hover:border-border-default hover:-translate-y-0.5"
             >
               <h3 className="text-[14px] font-medium text-text-primary mb-1 group-hover:text-accent transition-colors">{section.title}</h3>
               <p className="text-[12px] text-text-muted">{section.description}</p>

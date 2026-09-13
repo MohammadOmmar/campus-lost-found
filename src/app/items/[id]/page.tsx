@@ -55,52 +55,59 @@ export default async function ItemDetailPage({ params, searchParams }: ItemDetai
         <ArrowLeft className="w-3.5 h-3.5" /> Back to Browse
       </Link>
 
-      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-        <div className="aspect-square bg-base-700/30 rounded-lg flex items-center justify-center overflow-hidden border border-border-subtle">
+      <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+        <div className="relative aspect-square bg-base-900/40 rounded-xl flex items-center justify-center overflow-hidden border border-border-subtle">
           {item.image_url ? (
             <Image src={item.image_url} alt={item.title} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           ) : (
-            <Package className="w-16 h-16 text-text-muted/20" />
+            <div className="w-16 h-16 rounded-2xl bg-base-700/30 flex items-center justify-center border border-border-subtle/50">
+              <Package className="w-8 h-8 text-text-muted/30" />
+            </div>
           )}
         </div>
 
-        <div className="flex flex-col">
+        <div className="flex flex-col lg:sticky lg:top-24">
           <div className="flex items-center gap-3 mb-5">
-            <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-medium tracking-wide ${isLost ? 'bg-status-lost/10 text-status-lost' : 'bg-status-found/10 text-status-found'}`}>
+            <span className={`inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-medium tracking-wide ${
+              isLost
+                ? 'bg-status-lost/15 text-status-lost border border-status-lost/20'
+                : 'bg-status-found/15 text-status-found border border-status-found/20'
+            }`}>
               {item.type}
             </span>
                         {item.status !== 'OPEN' && (
-              <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-base-700/30 text-[11px] font-medium text-text-muted">
+              <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-base-700/20 text-[10px] font-medium text-text-muted border border-border-subtle">
                 {item.status.charAt(0) + item.status.slice(1).toLowerCase()}
               </span>
             )}
           </div>
 
-          <h1 className="text-h1 mb-4">{item.title}</h1>
+          <h1 className="text-h1 mb-5">{item.title}</h1>
 
-          <div className="space-y-3 mb-8">
-            <div className="flex items-center gap-2 text-[14px] text-text-muted"><MapPin className="w-4 h-4" /><span>{item.location}</span></div>
-            <div className="flex items-center gap-2 text-[14px] text-text-muted"><Calendar className="w-4 h-4" /><span>{formatDate(item.date_lost_found)}</span></div>
+          <div className="flex items-center gap-3 text-[14px] text-text-muted mb-3">
+            <span className="inline-flex items-center gap-1.5"><MapPin className="w-4 h-4" />{item.location}</span>
+            <span className="text-border-strong">·</span>
+            <span className="inline-flex items-center gap-1.5"><Calendar className="w-4 h-4" />{formatDate(item.date_lost_found)}</span>
           </div>
 
           <div className="mb-8">
-            <h3 className="text-[12px] text-text-muted uppercase tracking-wide mb-3">Description</h3>
+            <h3 className="text-caption mb-3">Description</h3>
             <p className="text-[14px] text-text-primary leading-relaxed whitespace-pre-wrap">{item.description}</p>
           </div>
 
           <div className="mb-8">
-            <h3 className="text-[12px] text-text-muted uppercase tracking-wide mb-3">Category</h3>
+            <h3 className="text-caption mb-3">Category</h3>
             <p className="text-[14px] text-text-primary">{item.category}</p>
           </div>
           {isOwner && item.type === 'FOUND' && privateNote && (
-            <div className="mb-8 rounded-lg border border-border-subtle bg-base-700/20 p-5">
-              <p className="text-[12px] text-text-muted mb-2 inline-flex items-center gap-2"><Lock className="h-3 w-3" /> Private verification · only you can see this</p>
+            <div className="mb-8 rounded-xl border border-border-subtle bg-base-800/40 p-5">
+              <p className="text-caption mb-2 inline-flex items-center gap-2 text-text-muted"><Lock className="h-3 w-3" /> Private verification · only you can see this</p>
               <p className="text-[14px] whitespace-pre-wrap">{privateNote}</p>
             </div>
           )}
 
           {myClaim && (
-            <div className="mb-8 rounded-lg border border-border-subtle bg-base-850 p-5">
+            <div className="mb-8 rounded-xl border border-border-subtle bg-base-850/60 p-5">
               <p className="text-[13px] text-text-muted">Your claim status: <span className="font-medium text-text-primary capitalize">{myClaim.status}</span></p>
             </div>
           )}
@@ -108,7 +115,7 @@ export default async function ItemDetailPage({ params, searchParams }: ItemDetai
           {isOwner && item.type === 'FOUND' && (
             <div className="mb-8">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-[12px] text-text-muted uppercase tracking-wide">Claims{pendingCount > 0 ? ` · ${pendingCount} awaiting review` : ''}</h3>
+                <h3 className="text-caption text-text-muted">Claims{pendingCount > 0 ? ` · ${pendingCount} awaiting review` : ''}</h3>
               </div>
               <OwnerClaimsList claims={ownerClaims} />
             </div>
@@ -118,7 +125,7 @@ export default async function ItemDetailPage({ params, searchParams }: ItemDetai
             <div className="mb-8"><ReturnActions itemId={item.id} itemStatus={item.status} /></div>
           )}
 
-          <div className="mt-auto pt-6 border-t border-border-subtle">
+          <div className="mt-8 pt-6 border-t border-border-subtle">
             <div className="flex flex-col sm:flex-row gap-3">
               {canClaim && (<Button size="lg" className="flex-1 h-11" asChild><Link href={`/items/${item.id}/claim`}>Claim this item</Link></Button>)}
               {isOwner && (

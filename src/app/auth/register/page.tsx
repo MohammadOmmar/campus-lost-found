@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription } from '@/components/ui/alert'
+import { motion } from 'framer-motion'
 
 export default function RegisterPage() {
   const router = useRouter()
@@ -33,10 +34,15 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 pt-24 pb-16">
-      <div className="w-full max-w-md">
-        <div className="bg-base-850 border border-border-subtle rounded-lg p-8">
+      <motion.div
+        className="w-full max-w-md"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <div className="bg-base-850/60 border border-border-subtle rounded-xl p-8 backdrop-blur-sm">
           <div className="mb-8">
-            <p className="text-[11px] uppercase tracking-wider text-text-muted mb-2">Get Started</p>
+            <p className="text-caption text-text-muted mb-2">Get Started</p>
             <h1 className="text-h3">Create account</h1>
             <p className="text-body text-text-muted mt-2">Sign up to start reporting lost and found items</p>
           </div>
@@ -71,7 +77,7 @@ export default function RegisterPage() {
             </div>
           </form>
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

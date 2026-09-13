@@ -37,7 +37,7 @@ export default async function ItemsPage({ searchParams }: ItemsPageProps) {
           <h1 className="text-h1 mb-2">Browse Items</h1>
           <p className="text-body text-text-muted">Search for lost and found items on campus</p>
         </div>
-        <Button asChild size="lg" className="h-10 rounded-full px-5">
+        <Button asChild size="lg" className="h-10 px-5">
           <Link href="/items/new"><Plus className="mr-2 w-4 h-4" /> Report Item</Link>
         </Button>
       </div>
@@ -53,7 +53,13 @@ export default async function ItemsPage({ searchParams }: ItemsPageProps) {
         </>
       ) : (
         <div className="text-center py-20">
-          <p className="text-body text-text-muted mb-4">No items found matching your criteria.</p>
+          <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-base-800 border border-border-subtle">
+            <Plus className="h-6 w-6 text-text-muted" />
+          </div>
+          <h3 className="text-h3 mb-2">No items found</h3>
+          <p className="text-body text-text-muted mb-6 measure-default mx-auto">
+            No items match your search criteria. Try adjusting your filters or be the first to report something.
+          </p>
           <Button asChild variant="outline"><Link href="/items/new">Report an Item</Link></Button>
         </div>
       )}

@@ -4,6 +4,7 @@ import { UserScenarios } from '@/components/home/user-scenarios'
 import { RecentItems } from '@/components/home/recent-items'
 import { PrivacyVerification } from '@/components/home/privacy-verification'
 import { FinalCTA } from '@/components/home/final-cta'
+import { ContinuousMarquee } from '@/components/home/continuous-marquee'
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <div className="section-surface-deep">
         <RecentItems />
       </div>
+      <ContinuousMarquee />
       <PrivacyVerification />
       <FinalCTA />
     </div>

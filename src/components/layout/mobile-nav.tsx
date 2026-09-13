@@ -49,7 +49,7 @@ export function MobileNav({ user }: MobileNavProps) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 top-[60px] z-50 bg-base-950 md:hidden overflow-y-auto"
+            className="fixed inset-0 top-12 z-50 bg-base-950 md:hidden overflow-y-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

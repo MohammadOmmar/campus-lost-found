@@ -61,9 +61,10 @@ export function ItemForm() {
       {error && (<Alert variant="destructive"><AlertDescription>{error}</AlertDescription></Alert>)}
 
             <section>
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-9 h-9 rounded-md bg-accent/10 flex items-center justify-center ring-1 ring-accent/20"><Package className="w-4 h-4 text-accent" /></div>
-          <div><h3 className="text-[15px] font-medium text-text-primary">What is it?</h3><p className="text-[12px] text-text-muted">Tell us about the item</p></div>
+        <div className="flex items-center gap-4 mb-6">
+          <div className="w-8 h-8 rounded-lg bg-base-800 flex items-center justify-center text-caption">01</div>
+          <div className="flex-1"><h3 className="text-[15px] font-medium text-text-primary">What is it?</h3><p className="text-[12px] text-text-muted">Tell us about the item</p></div>
+          <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center border border-accent/15"><Package className="w-4 h-4 text-accent" /></div>
         </div>
         <div className="space-y-5">
           <div className="space-y-2">
@@ -80,8 +81,8 @@ export function ItemForm() {
             <div className="space-y-2">
               <Label>Type</Label>
               <div className="flex gap-2">
-                <button type="button" onClick={() => setValue('type', 'LOST')} className={`flex-1 h-10 rounded-lg text-[13px] font-medium border transition-all duration-200 ${selectedType === 'LOST' ? 'border-primary bg-accent/5 text-text-primary' : 'border-border-subtle text-text-muted hover:border-border-subtle'}`}>Lost</button>
-                <button type="button" onClick={() => setValue('type', 'FOUND')} className={`flex-1 h-10 rounded-lg text-[13px] font-medium border transition-all duration-200 ${selectedType === 'FOUND' ? 'border-primary bg-accent/5 text-text-primary' : 'border-border-subtle text-text-muted hover:border-border-subtle'}`}>Found</button>
+                <button type="button" onClick={() => setValue('type', 'LOST')} className={`flex-1 h-11 rounded-md text-[13px] font-medium border transition-all duration-200 ${selectedType === 'LOST' ? 'border-accent/40 bg-accent/5 text-text-primary' : 'border-border-subtle text-text-muted hover:border-border-default'}`}>Lost</button>
+                <button type="button" onClick={() => setValue('type', 'FOUND')} className={`flex-1 h-11 rounded-md text-[13px] font-medium border transition-all duration-200 ${selectedType === 'FOUND' ? 'border-accent/40 bg-accent/5 text-text-primary' : 'border-border-subtle text-text-muted hover:border-border-default'}`}>Found</button>
               </div>
             </div>
             <div className="space-y-2">
@@ -101,9 +102,10 @@ export function ItemForm() {
         </div>
       </section>
             <section>
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-9 h-9 rounded-md bg-accent/10 flex items-center justify-center ring-1 ring-accent/20"><MapPin className="w-4 h-4 text-accent" /></div>
-          <div><h3 className="text-[15px] font-medium text-text-primary">Where and when?</h3><p className="text-[12px] text-text-muted">Help narrow down the search</p></div>
+        <div className="flex items-center gap-4 mb-6">
+          <div className="w-8 h-8 rounded-lg bg-base-800 flex items-center justify-center text-caption">02</div>
+          <div className="flex-1"><h3 className="text-[15px] font-medium text-text-primary">Where and when?</h3><p className="text-[12px] text-text-muted">Help narrow down the search</p></div>
+          <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center border border-accent/15"><MapPin className="w-4 h-4 text-accent" /></div>
         </div>
         <div className="grid sm:grid-cols-2 gap-5">
           <div className="space-y-2">
@@ -120,9 +122,10 @@ export function ItemForm() {
       </section>
 
             <section>
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-9 h-9 rounded-md bg-accent/10 flex items-center justify-center ring-1 ring-accent/20"><Shield className="w-4 h-4 text-accent" /></div>
-          <div><h3 className="text-[15px] font-medium text-text-primary">Help verify ownership</h3><p className="text-[12px] text-text-muted">Optional —" used only during claim review</p></div>
+        <div className="flex items-center gap-4 mb-6">
+          <div className="w-8 h-8 rounded-lg bg-base-800 flex items-center justify-center text-caption">03</div>
+          <div className="flex-1"><h3 className="text-[15px] font-medium text-text-primary">Help verify ownership</h3><p className="text-[12px] text-text-muted">Optional · used only during claim review</p></div>
+          <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center border border-accent/15"><Shield className="w-4 h-4 text-accent" /></div>
         </div>
         <div className="space-y-2">
           <Label htmlFor="private_verification">Private verification detail</Label>
