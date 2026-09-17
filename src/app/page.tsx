@@ -1,27 +1,16 @@
-import { Hero } from '@/components/home/hero'
-import { HowItWorks } from '@/components/home/how-it-works'
-import { UserScenarios } from '@/components/home/user-scenarios'
+import { Suspense } from 'react'
+import { ServiceHero } from '@/components/home/service-hero'
+import { ServiceGuide } from '@/components/home/service-guide'
 import { RecentItems } from '@/components/home/recent-items'
-import { PrivacyVerification } from '@/components/home/privacy-verification'
-import { FinalCTA } from '@/components/home/final-cta'
-import { ContinuousMarquee } from '@/components/home/continuous-marquee'
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1">
-      <Hero />
-      <div className="section-surface-deep">
-        <HowItWorks />
-      </div>
-      <div className="section-surface-raised">
-        <UserScenarios />
-      </div>
-      <div className="section-surface-deep">
+    <>
+      <ServiceHero />
+      <Suspense fallback={<div className="container-tight py-8" role="status">Loading campus reports...</div>}>
         <RecentItems />
-      </div>
-      <ContinuousMarquee />
-      <PrivacyVerification />
-      <FinalCTA />
-    </div>
+      </Suspense>
+      <ServiceGuide />
+    </>
   )
 }

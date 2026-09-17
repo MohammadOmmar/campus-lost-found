@@ -9,7 +9,7 @@ const easeOutExpo = [0.16, 1, 0.3, 1] as const
 const scenarios = [
   { id: 'students', label: 'Students', icon: User, title: 'Lost your belongings?', description: 'Report what you lost with details only you would know. Browse found items and submit claims with proof of ownership.', steps: ['Report lost item with photo and details', 'Browse found items or wait for matches', 'Submit claim with private ownership proof', 'Get your item back once verified'] },
   { id: 'finders', label: 'Finders', icon: Search, title: 'Found something?', description: 'Help return found items to their owners. Review claims securely and verify ownership before handing off.', steps: ['Report found item with location and photo', 'Wait for potential owners to claim', 'Review ownership proof privately', 'Return item and mark as resolved'] },
-  { id: 'staff', label: 'Campus Staff', icon: Building2, title: 'Supporting your campus', description: 'Oversee the return process with a clear, organized workflow. No personal data exposed —" just verified handoffs.', steps: ['View organized lost & found listings', 'See verified matches and claim status', 'Support secure item returns', 'Access resolution history'] },
+  { id: 'staff', label: 'Campus Staff', icon: Building2, title: 'Supporting your campus', description: 'Oversee the return process with a clear, organized workflow. No personal data exposed - just verified handoffs.', steps: ['View organized lost & found listings', 'See verified matches and claim status', 'Support secure item returns', 'Access resolution history'] },
 ]
 
 export function UserScenarios() {
@@ -25,7 +25,7 @@ export function UserScenarios() {
             Built for everyone on campus
           </motion.h2>
           <motion.p className="text-body-large max-w-lg mx-auto" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1, ease: easeOutExpo }}>
-            Whether you lost something, found something, or help run the campus — there&apos;s a workflow for you.
+            Whether you lost something, found something, or help run the campus - there&apos;s a workflow for you.
           </motion.p>
         </div>
 

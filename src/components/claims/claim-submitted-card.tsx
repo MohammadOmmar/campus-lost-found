@@ -1,8 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { CheckCircle2 } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import { FadeUp } from '@/lib/motion'
+import { ClaimTimeline } from '@/components/claims/claim-timeline'
 
 export function ClaimSubmittedCard({
   itemId,
@@ -13,30 +14,18 @@ export function ClaimSubmittedCard({
 }) {
   return (
     <FadeUp delay={0.1}>
-            <div className="rounded-lg border border-status-found/20 bg-status-found/5 p-8 text-center">
-        <CheckCircle2 className="mx-auto mb-4 h-10 w-10 text-status-found" />
-        <h2 className="text-h3 mb-2">Claim submitted</h2>
-        <p className="text-body text-text-muted measure-default mx-auto">
-          Your proof has been sent to the finder for review.
+      <div className="border border-border-default rounded-sm bg-base-900 p-6 sm:p-8">
+        <p className="text-caption mb-3">Claim submitted</p>
+        <h2 className="text-h3 mb-3">Sent to the finder for review</h2>
+        <p className="text-body measure-default">
+          Your ownership details were sent to the finder. They are not shown publicly on the report.
         </p>
-        {status && (
-          <p className="mt-4 text-small text-text-muted">
-            Status: <span className="font-medium text-text-primary capitalize">{status}</span>
-          </p>
-        )}
-        <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-          <Link
-            href="/dashboard/claims"
-            className="inline-flex items-center justify-center rounded-md bg-accent px-6 py-3 text-small font-medium text-white transition-colors hover:bg-accent-dim"
-          >
-            Track my claims
-          </Link>
-          <Link
-            href={`/items/${itemId}`}
-            className="inline-flex items-center justify-center rounded-xl border border-border-subtle px-6 py-3 text-small font-medium transition-colors hover:bg-base-700"
-          >
-            Back to item
-          </Link>
+        <div className="mt-6">
+          <ClaimTimeline status={status ?? 'pending'} />
+        </div>
+        <div className="mt-6 flex flex-col sm:flex-row gap-3">
+          <Button asChild size="lg"><Link href="/dashboard/claims">Track my claims</Link></Button>
+          <Button asChild variant="outline" size="lg"><Link href={`/items/${itemId}`}>Back to report</Link></Button>
         </div>
       </div>
     </FadeUp>

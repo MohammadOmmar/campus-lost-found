@@ -1,8 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
-import Image from 'next/image'
-import { Package, ArrowLeft } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import { ClaimStatusBadge } from '@/components/claims/claim-status-badge'
 
 function formatDate(value: string): string {
@@ -23,7 +22,7 @@ export default async function MyClaimsPage() {
     redirect('/auth/login')
   }
 
-  // Own claims only —" RLS further restricts to the caller's rows.
+  // Own claims only - RLS further restricts to the caller's rows.
   const { data: claims } = await supabase
     .from('claims')
     .select('id, status, proof, created_at, item_id')
@@ -31,11 +30,11 @@ export default async function MyClaimsPage() {
     .order('created_at', { ascending: false })
 
   const itemIds = [...new Set((claims ?? []).map((c) => c.item_id))]
-  const { data: items } =
+    const { data: items } =
     itemIds.length > 0
       ? await supabase
           .from('items')
-          .select('id, title, category, type, status, location, date_lost_found, image_url')
+          .select('id, title, category, type, status, location, date_lost_found')
           .in('id', itemIds)
       : { data: [] }
   const itemMap = new Map((items ?? []).map((i) => [i.id, i]))
@@ -62,29 +61,20 @@ export default async function MyClaimsPage() {
           {claims.map((claim) => {
             const item = itemMap.get(claim.item_id)
             return (
-              <Link
+                          <Link
                 key={claim.id}
                 href={`/items/${claim.item_id}`}
-                className="flex gap-5 rounded-lg border border-border-subtle bg-base-850 p-5 transition-all hover:-translate-y-0.5 hover:border-border-subtle"
+                className="flex gap-4 rounded-md border border-border-subtle bg-base-850 p-5 transition-colors hover:bg-base-800/70 hover:border-border-default"
               >
-                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-md bg-base-700/40">
-                  {item?.image_url ? (
-                    <Image src={item.image_url} alt={item.title} fill sizes="64px" className="object-cover" />
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center text-text-muted/40">
-                      <Package className="h-5 w-5" />
-                    </div>
-                  )}
-                </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center justify-between gap-3 mb-1">
-                    <p className="text-body font-medium truncate">{item?.title ?? 'Item'}</p>
+                    <p className="text-body font-medium truncate hover:text-accent transition-colors">{item?.title ?? 'Item'}</p>
                     <ClaimStatusBadge status={claim.status} />
                   </div>
-                  <p className="text-small text-text-muted">
-                    {item?.location} · {item?.date_lost_found ? formatDate(item.date_lost_found) : ''} ·
-                    Submitted {formatDate(claim.created_at)}
+                  <p className="text-caption text-text-muted">
+                    {item?.category} - {item?.location} - {item?.date_lost_found ? formatDate(item.date_lost_found) : ''}
                   </p>
+                  <p className="mt-2 text-small text-text-muted">Submitted {formatDate(claim.created_at)}</p>
                 </div>
               </Link>
             )

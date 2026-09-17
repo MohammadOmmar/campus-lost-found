@@ -86,7 +86,7 @@ export default async function ItemDetailPage({ params, searchParams }: ItemDetai
 
           <div className="flex items-center gap-3 text-[14px] text-text-muted mb-3">
             <span className="inline-flex items-center gap-1.5"><MapPin className="w-4 h-4" />{item.location}</span>
-            <span className="text-border-strong">·</span>
+            <span className="text-border-strong">-</span>
             <span className="inline-flex items-center gap-1.5"><Calendar className="w-4 h-4" />{formatDate(item.date_lost_found)}</span>
           </div>
 
@@ -101,7 +101,7 @@ export default async function ItemDetailPage({ params, searchParams }: ItemDetai
           </div>
           {isOwner && item.type === 'FOUND' && privateNote && (
             <div className="mb-8 rounded-xl border border-border-subtle bg-base-800/40 p-5">
-              <p className="text-caption mb-2 inline-flex items-center gap-2 text-text-muted"><Lock className="h-3 w-3" /> Private verification · only you can see this</p>
+              <p className="text-caption mb-2 inline-flex items-center gap-2 text-text-muted"><Lock className="h-3 w-3" /> Private verification - only you can see this</p>
               <p className="text-[14px] whitespace-pre-wrap">{privateNote}</p>
             </div>
           )}
@@ -115,7 +115,7 @@ export default async function ItemDetailPage({ params, searchParams }: ItemDetai
           {isOwner && item.type === 'FOUND' && (
             <div className="mb-8">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-caption text-text-muted">Claims{pendingCount > 0 ? ` · ${pendingCount} awaiting review` : ''}</h3>
+                <h3 className="text-caption text-text-muted">Claims{pendingCount > 0 ? ` - ${pendingCount} awaiting review` : ''}</h3>
               </div>
               <OwnerClaimsList claims={ownerClaims} />
             </div>

@@ -81,10 +81,10 @@ export function PrivacyVerification() {
               <div className="w-9 h-9 rounded-lg bg-heritage-muted flex items-center justify-center border border-heritage-border"><EyeOff className="w-4 h-4 text-heritage" /></div>
               <div><h4 className="text-[14px] font-medium text-text-primary">Private</h4><p className="text-[12px] text-text-muted">Only during claim review</p></div>
             </div>
-            <InfoRow label="Verification" value="•••••••••••••••" masked />
-            <InfoRow label="Owner detail" value="•••••••••••••••" masked />
-            <InfoRow label="Serial number" value="•••••••••••••••" masked />
-            <InfoRow label="Unique mark" value="•••••••••••••••" masked />
+            <InfoRow label="Verification" value="---------------" masked />
+            <InfoRow label="Owner detail" value="---------------" masked />
+            <InfoRow label="Serial number" value="---------------" masked />
+            <InfoRow label="Unique mark" value="---------------" masked />
           </motion.div>
         </div>
 

@@ -13,7 +13,7 @@ import { Label } from '@/components/ui/label'
 import { ImageUpload } from './image-upload'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { Package, MapPin, Shield } from 'lucide-react'
+import { FormSectionHeading } from './form-section-heading'
 
 const categories = [
   { value: 'electronics', label: 'Electronics' },
@@ -26,14 +26,14 @@ const categories = [
   { value: 'other', label: 'Other' },
 ]
 
-export function ItemForm() {
+export function ItemForm({ initialType = 'LOST' }: { initialType?: 'LOST' | 'FOUND' }) {
   const [isPending, startTransition] = useTransition()
   const [error, setError] = useState<string | null>(null)
   const [imageFile, setImageFile] = useState<File | null>(null)
 
   const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<ItemInput>({
     resolver: zodResolver(itemSchema),
-    defaultValues: { type: 'LOST', title: '', description: '', category: '', location: '', date_lost_found: new Date().toISOString().split('T')[0], private_verification: '' },
+    defaultValues: { type: initialType, title: '', description: '', category: '', location: '', date_lost_found: new Date().toISOString().split('T')[0], private_verification: '' },
   })
 
   const selectedType = watch('type')
@@ -60,12 +60,8 @@ export function ItemForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
       {error && (<Alert variant="destructive"><AlertDescription>{error}</AlertDescription></Alert>)}
 
-            <section>
-        <div className="flex items-center gap-4 mb-6">
-          <div className="w-8 h-8 rounded-lg bg-base-800 flex items-center justify-center text-caption">01</div>
-          <div className="flex-1"><h3 className="text-[15px] font-medium text-text-primary">What is it?</h3><p className="text-[12px] text-text-muted">Tell us about the item</p></div>
-          <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center border border-accent/15"><Package className="w-4 h-4 text-accent" /></div>
-        </div>
+      <section>
+        <FormSectionHeading number="01" title="Item information" description="Public details - keep unique identifying information for private verification" />
         <div className="space-y-5">
           <div className="space-y-2">
             <Label htmlFor="title">Item name</Label>
@@ -101,12 +97,8 @@ export function ItemForm() {
           </div>
         </div>
       </section>
-            <section>
-        <div className="flex items-center gap-4 mb-6">
-          <div className="w-8 h-8 rounded-lg bg-base-800 flex items-center justify-center text-caption">02</div>
-          <div className="flex-1"><h3 className="text-[15px] font-medium text-text-primary">Where and when?</h3><p className="text-[12px] text-text-muted">Help narrow down the search</p></div>
-          <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center border border-accent/15"><MapPin className="w-4 h-4 text-accent" /></div>
-        </div>
+      <section>
+        <FormSectionHeading number="02" title="Location and date" description="Where and when was the item lost or found?" />
         <div className="grid sm:grid-cols-2 gap-5">
           <div className="space-y-2">
             <Label htmlFor="location">Location</Label>
@@ -121,12 +113,8 @@ export function ItemForm() {
         </div>
       </section>
 
-            <section>
-        <div className="flex items-center gap-4 mb-6">
-          <div className="w-8 h-8 rounded-lg bg-base-800 flex items-center justify-center text-caption">03</div>
-          <div className="flex-1"><h3 className="text-[15px] font-medium text-text-primary">Help verify ownership</h3><p className="text-[12px] text-text-muted">Optional · used only during claim review</p></div>
-          <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center border border-accent/15"><Shield className="w-4 h-4 text-accent" /></div>
-        </div>
+      <section>
+        <FormSectionHeading number="03" title="Private verification" description="Optional - used during claim review, not shown in campus reports" />
         <div className="space-y-2">
           <Label htmlFor="private_verification">Private verification detail</Label>
           <Textarea id="private_verification" placeholder="e.g., Small tear on the right shoulder strap" rows={3} {...register('private_verification')} disabled={isPending} />

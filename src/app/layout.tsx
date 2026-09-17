@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-import { ScrollProgress } from "@/components/motion/scroll-progress";
+import { Navbar } from "@/components/layout/service-navbar";
+import { ServiceFooter as Footer } from "@/components/layout/service-footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,9 +36,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${displaySerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-base-950 text-text-primary">
-        <ScrollProgress />
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <Navbar />
-        <main className="flex-1 relative">
+        <main id="main-content" tabIndex={-1} className="flex-1 relative min-w-0">
           {children}
         </main>
         <Footer />

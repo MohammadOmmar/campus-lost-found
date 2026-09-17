@@ -4,15 +4,15 @@ import { HorizontalMarquee } from '@/components/motion/horizontal-marquee'
 
 const words = [
   'LOST',
-  '·',
+  '-',
   'FOUND',
-  '·',
+  '-',
   'VERIFY',
-  '·',
+  '-',
   'RETURN',
-  '·',
+  '-',
   'RECONNECT',
-  '·',
+  '-',
 ]
 
 export function ContinuousMarquee() {
@@ -23,7 +23,7 @@ export function ContinuousMarquee() {
           <span
             key={i}
             className={`text-[11px] font-mono tracking-[0.25em] whitespace-nowrap ${
-              word === '·' ? 'text-heritage/40' : 'text-text-muted/40'
+              word === '-' ? 'text-heritage/40' : 'text-text-muted/40'
             }`}
           >
             {word}

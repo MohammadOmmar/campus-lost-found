@@ -41,6 +41,8 @@ const defaultViewport: UseInViewOptions = {
 // FADE IN
 // =============================================
 
+const reduced = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
 export function FadeIn({
   children,
   className,
@@ -56,10 +58,10 @@ export function FadeIn({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0 }}
+      initial={{ opacity: reduced ? 1 : 0 }}
       whileInView={{ opacity: 1 }}
       viewport={defaultViewport}
-      transition={{ duration, delay, ease: easeOut }}
+      transition={{ duration: reduced ? 0.01 : duration, delay: reduced ? 0 : delay, ease: easeOut }}
       {...props}
     >
       {children}
@@ -88,10 +90,10 @@ export function FadeUp({
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: distance }}
+      initial={{ opacity: reduced ? 1 : 0, y: reduced ? 0 : distance }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={defaultViewport}
-      transition={{ duration, delay, ease: easeOut }}
+      transition={{ duration: reduced ? 0.01 : duration, delay: reduced ? 0 : delay, ease: easeOut }}
       {...props}
     >
       {children}

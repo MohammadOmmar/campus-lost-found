@@ -36,7 +36,7 @@ export default function LoginPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="bg-base-850/60 border border-border-subtle rounded-xl p-8 backdrop-blur-sm">
+        <div className="border-t-2 border-accent bg-base-900 p-6 sm:p-8">
           <div className="mb-8">
             <p className="text-caption text-text-muted mb-2">Welcome</p>
             <h1 className="text-h3">Log in</h1>

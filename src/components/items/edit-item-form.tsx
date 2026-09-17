@@ -198,7 +198,7 @@ export function EditItemForm({ item }: EditItemFormProps) {
           </div>
           <div>
             <h3 className="text-h3">Help verify ownership</h3>
-            <p className="text-small text-text-muted">Optional —" used only during claim review</p>
+            <p className="text-small text-text-muted">Optional - used only during claim review</p>
           </div>
         </div>
 
